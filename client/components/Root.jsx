@@ -1,5 +1,5 @@
 import React from 'react';
-import ign from '../../public/images/IGN_Logo.png';
+import ContentThumbs from './ContentThumbs';
 
 class Root extends React.Component {
   constructor(props) {
@@ -9,9 +9,18 @@ class Root extends React.Component {
 
   render() {
     return (
-      <div>
-        <img src={ign} alt="IGN_Logo" />
-        <h1>Hello Cake!</h1>
+      <div className="rootWrapper">
+        <h1> Latest News </h1>
+        <div className="rootMenu">
+          <h2>Newest</h2> <br />
+          <h2>Videos</h2> <br />
+          <h2>Articles</h2>
+        </div>
+        <div className="rootThumbsList">
+          <ContentThumbs />
+          <ContentThumbs />
+          <ContentThumbs />
+        </div>
       </div>
     );
   }
