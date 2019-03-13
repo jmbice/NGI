@@ -1,0 +1,35 @@
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.thumbWrapper {
+  width: 100%;
+  height: 250px;
+  border-bottom: 1px solid gray;
+  padding-top: 20px;
+}
+
+.thumbImage {
+  float: left;
+  width: 45%;
+  height: auto;
+}
+
+.thumbText {
+  float: right;
+  width: 45%;
+  height: auto;
+  font-family: $theme-font;
+  font-size: 40px;
+}
+
+.thumbPublication {
+  color: $hotpink;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.thumbTitle {
+  font-weight: 600;
+}
