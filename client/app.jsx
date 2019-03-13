@@ -1,4 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Root from './components/Root';
+import './styles/main.scss';
 
-ReactDOM.render(<h1>Hello World!</h1>, document.getElementById('IGN-webApp-FE'));
+ReactDOM.render(<Root />, document.getElementById('IGN-webApp-FE'));
