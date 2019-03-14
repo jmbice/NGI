@@ -16,7 +16,10 @@ app.use((req, res, next) => {
 });
 
 // build middleware here
-
+// app.use((req, res, next) => {
+//   console.log(req.method, req.body);
+//   next();
+// });
 
 // build API calls here
 app.get('/content', (req, res) => {
