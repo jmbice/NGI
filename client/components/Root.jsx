@@ -20,6 +20,20 @@ class Root extends React.Component {
   }
 
   render() {
+    const {
+      allContent, videos, articles, filter,
+    } = this.state;
+    let content;
+    if (filter === 0) {
+      content = allContent;
+    }
+    if (filter === 1) {
+      content = videos;
+    }
+    if (filter === 2) {
+      content = articles;
+    }
+
     return (
       <div className="rootWrapper">
         <h1> Latest News </h1>
@@ -29,6 +43,7 @@ class Root extends React.Component {
           <h2>Articles</h2>
         </div>
         <div className="rootThumbsList">
+          //{content} goes here
         </div>
       </div>
     );
