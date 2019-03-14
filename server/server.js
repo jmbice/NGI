@@ -19,7 +19,15 @@ app.use((req, res, next) => {
 
 
 // build API calls here
-
+app.get('/content', (req, res) => {
+  request('https://ign-apis.herokuapp.com/content?count=20', (error, response, body) => {
+    if (error) {
+      res.status(response.statusCode).send();
+    } else {
+      res.status(response.statusCode).send(body);
+    }
+  });
+});
 
 // listening...
 app.listen(port, () => console.log(`IGN-webApp-FE listening on port ${port}!`));
