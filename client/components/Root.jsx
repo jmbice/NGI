@@ -3,7 +3,12 @@ import React from 'react';
 class Root extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      allContent: [],
+      videos: [],
+      articles: [],
+      filter: 0,
+    };
   }
 
   componentDidMount() {
