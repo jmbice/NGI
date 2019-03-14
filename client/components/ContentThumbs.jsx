@@ -1,18 +1,22 @@
 import React from 'react';
-import ign from '../../public/images/IGN_Logo.png';
+// import ign from '../../public/images/IGN_Logo.png';
 
-const ContentThumbs = () => {
+const ContentThumbs = (props) => {
+  const { article } = props;
+
   return (
     <div className="thumbWrapper">
       <div className="thumbImage">
-        <img src={ign} alt="place_holder" />
+        <img src={article.thumbnails[0].url} alt="small_thumbnail" />
       </div>
       <div className="thumbText">
         <div className="thumbPublication">
-          Elapsed Time since publication
+          {article.metadata.publishDate}
+          <br />
+          {article.commentsCount}
         </div>
         <div className="thumbTitle">
-          Title
+          {article.metadata.title ? article.metadata.title : article.metadata.headline}
         </div>
       </div>
     </div>
