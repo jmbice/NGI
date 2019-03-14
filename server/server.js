@@ -1,22 +1,25 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
+const request = require('request');
+
 const port = 3000;
 const app = express();
 
-//paths, parseJSON = true, pars URL encoded = true, allow x-origin requests
+// paths, parseJSON = true, pars URL encoded = true, allow x-origin requests
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
-//build APIs here
+// build middleware here
 
 
+// build API calls here
 
-//listening...
+
+// listening...
 app.listen(port, () => console.log(`IGN-webApp-FE listening on port ${port}!`));
