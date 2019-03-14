@@ -1,4 +1,5 @@
 import React from 'react';
+import ContentThumbsList from './ContentThumbsList';
 
 class Root extends React.Component {
   constructor(props) {
@@ -43,7 +44,9 @@ class Root extends React.Component {
           <h2>Articles</h2>
         </div>
         <div className="rootThumbsList">
-          //{content} goes here
+          <ContentThumbsList
+            content={content}
+          />
         </div>
       </div>
     );
