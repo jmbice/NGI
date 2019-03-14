@@ -1,10 +1,17 @@
 import React from 'react';
-import ContentThumbs from './ContentThumbs';
 
 class Root extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    fetch('/content')
+      .then(res => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   }
 
   render() {
@@ -17,9 +24,6 @@ class Root extends React.Component {
           <h2>Articles</h2>
         </div>
         <div className="rootThumbsList">
-          <ContentThumbs />
-          <ContentThumbs />
-          <ContentThumbs />
         </div>
       </div>
     );
