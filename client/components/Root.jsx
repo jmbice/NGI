@@ -15,8 +15,21 @@ class Root extends React.Component {
   componentDidMount() {
     fetch('/content')
       .then(res => res.json())
-      .then((data) => {
-        console.log(data);
+      .then((d) => {
+        const videos = [];
+        const articles = [];
+        d.data.map((e, i) => {
+          e.commentsCount = d.comments[i].count;
+          e.commentsId = d.comments[i].id;
+          if (e.contentType === 'article') { articles.push(e); }
+          if (e.contentType === 'video') { videos.push(e); }
+          return e;
+        });
+        this.setState({
+          allContent: d.data,
+          videos,
+          articles,
+        });
       });
   }
 
