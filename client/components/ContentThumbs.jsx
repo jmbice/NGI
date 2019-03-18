@@ -1,4 +1,6 @@
 import React from 'react';
+import dateFns from 'date-fns';
+
 // import ign from '../../public/images/IGN_Logo.png';
 
 const ContentThumbs = (props) => {
@@ -11,7 +13,7 @@ const ContentThumbs = (props) => {
       </div>
       <div className="thumbText">
         <div className="thumbPublication">
-          {article.metadata.publishDate}
+          {dateFns(article.metadata.publishDate).format('MM/DD/YYYY')}
           <br />
           {article.commentsCount}
         </div>
