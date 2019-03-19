@@ -1,9 +1,12 @@
 //base
 @import './base/_colors.scss';
 @import './base/_typography.scss';
+@import './base/_defaults.scss';
 
 //layout
 @import './layout/_layout.scss';
 
 //components
-@import './components/_ContentThumbs.scss';
+@import './components/_ContentList.scss';
+@import './components/_ContentListElement.scss';
+@import './components/_PlaySVG.scss';
