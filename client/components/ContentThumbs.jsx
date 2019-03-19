@@ -6,6 +6,20 @@ import dateFns from 'date-fns';
 const ContentThumbs = (props) => {
   const { article } = props;
 
+  const abbreviateDistanceInWordsToNow = (time) => {
+    const timeInWords = dateFns.distanceInWordsToNow(time);
+    let abbreviated = '';
+
+    for (let j = 0; j < timeInWords.length; j += 1) {
+      if (timeInWords.charAt(j) === ' ') {
+        abbreviated += timeInWords.charAt(j + 1);
+        break;
+      }
+      abbreviated += timeInWords.charAt(j);
+    }
+    return abbreviated;
+  };
+
   return (
     <div className="thumbWrapper">
       <div className="thumbImage">
@@ -13,7 +27,7 @@ const ContentThumbs = (props) => {
       </div>
       <div className="thumbText">
         <div className="thumbPublication">
-          {dateFns(article.metadata.publishDate).format('MM/DD/YYYY')}
+          {abbreviateDistanceInWordsToNow(article.metadata.publishDate)}
           <br />
           {article.commentsCount}
         </div>
