@@ -65,7 +65,9 @@ class Root extends React.Component {
 
     return (
       <div className="rootWrapper">
-        <h1> Latest News </h1>
+        <div className="rootHeader">
+          <h1> Latest News </h1>
+        </div>
         <div className="rootMenu">
           <Menu
             filter={filter}
