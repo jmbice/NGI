@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentList from './ContentList';
-
+import Menu from './Menu';
 
 class Root extends React.Component {
   constructor(props) {
@@ -65,11 +65,12 @@ class Root extends React.Component {
 
     return (
       <div className="rootWrapper">
-        <h1> Latest News </h1>\
+        <h1> Latest News </h1>
         <div className="rootMenu">
-          <h2>Newest</h2> <br />
-          <h2>Videos</h2> <br />
-          <h2>Articles</h2>
+          <Menu
+            filter={filter}
+            changeFilter={this.changeFilter}
+          />
         </div>
         <div className="rootContent">
           <ContentList
