@@ -1,14 +1,16 @@
 import React from 'react';
-import ContentThumbsList from './ContentThumbsList';
+import ContentList from './ContentList';
+
 
 class Root extends React.Component {
   constructor(props) {
     super(props);
+    this.changeFilter = this.changeFilter.bind(this);
     this.state = {
       allContent: [],
       videos: [],
       articles: [],
-      filter: 0,
+      filter: 'latest',
     };
   }
 
@@ -33,31 +35,44 @@ class Root extends React.Component {
       });
   }
 
+  changeFilter(e) {
+    const { filter } = this.state;
+    const target = e.target.value;
+    if (target === filter) {
+      return;
+    }
+    let newFilter;
+    if (target === 'latest') { newFilter = 'latest'; }
+    if (target === 'videos') { newFilter = 'videos'; }
+    if (target === 'articles') { newFilter = 'articles'; }
+    this.setState({ filter: newFilter });
+  }
+
   render() {
     const {
       allContent, videos, articles, filter,
     } = this.state;
     let content;
-    if (filter === 0) {
+    if (filter === 'latest') {
       content = allContent;
     }
-    if (filter === 1) {
+    if (filter === 'videos') {
       content = videos;
     }
-    if (filter === 2) {
+    if (filter === 'articles') {
       content = articles;
     }
 
     return (
       <div className="rootWrapper">
-        <h1> Latest News </h1>
+        <h1> Latest News </h1>\
         <div className="rootMenu">
           <h2>Newest</h2> <br />
           <h2>Videos</h2> <br />
           <h2>Articles</h2>
         </div>
-        <div className="rootThumbsList">
-          <ContentThumbsList
+        <div className="rootContent">
+          <ContentList
             content={content}
           />
         </div>
