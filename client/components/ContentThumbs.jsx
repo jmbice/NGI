@@ -1,6 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
 import PlaySVG from './PlaySVG';
+import textBubble from '../../public/images/text_bubble.png';
 
 
 // import ign from '../../public/images/IGN_Logo.png';
@@ -52,8 +53,10 @@ const ContentThumbs = (props) => {
       <div className="thumbText">
         <div className="thumbPublication">
           {abbreviateDistanceInWordsToNow(article.metadata.publishDate)}
-          <br />
-          {article.commentsCount}
+          {' '}
+          -
+          <img className="textBubble" src={textBubble} alt="text_bubble" />
+          {article.commentsCount === 0 ? null : article.commentsCount}
         </div>
         <div className="thumbTitle">
           {article.metadata.title ? article.metadata.title : article.metadata.headline}
