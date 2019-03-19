@@ -1,0 +1,54 @@
+.listElementSVG {
+  margin-left: 10px;
+  margin-top: 180px;
+  position: absolute;
+}
+
+.listElementCommentPNG {
+  width: 20px;
+  height: auto;
+  margin: 0 10px;
+}
+
+.listElementWrapper {
+  width: 100%;
+  height: 350px;
+  border-bottom: 1px solid $skyGrey;
+  padding-top: 20px;
+}
+
+.listElementImage {
+  float: left;
+  width: 500px;
+  height: auto;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.listElementText {
+  float: right;
+  width: 45%;
+  height: auto;
+  font-family: $theme-font;
+  font-size: 40px;
+  color: $nightGrey;
+}
+
+.listElementPublication {
+  color: $ignRed;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.listElementTitle {
+  font-weight: 600;
+  &:hover {
+    color: $linkBlue;
+    text-decoration: underline;
+  }
+}
