@@ -1,27 +1,10 @@
 import React from 'react';
 import dateFns from 'date-fns';
-import PlaySVG from './PlaySVG';
 import textBubble from '../../public/images/text_bubble.png';
+import PlaySVG from './PlaySVG';
 
-
-// import ign from '../../public/images/IGN_Logo.png';
-
-const ContentThumbs = (props) => {
+const ContentListElement = (props) => {
   const { article } = props;
-
-  const abbreviateDistanceInWordsToNow = (time) => {
-    const timeInWords = dateFns.distanceInWordsToNow(time);
-    let abbreviated = '';
-
-    for (let j = 0; j < timeInWords.length; j += 1) {
-      if (timeInWords.charAt(j) === ' ') {
-        abbreviated += timeInWords.charAt(j + 1);
-        break;
-      }
-      abbreviated += timeInWords.charAt(j);
-    }
-    return abbreviated;
-  };
 
   const convertDurationToTime = (s) => {
     let time = '';
@@ -37,6 +20,20 @@ const ContentThumbs = (props) => {
     time += `${seconds}`;
 
     return time;
+  };
+
+  const abbreviateDistanceInWordsToNow = (time) => {
+    const timeInWords = dateFns.distanceInWordsToNow(time);
+    let abbreviated = '';
+
+    for (let j = 0; j < timeInWords.length; j += 1) {
+      if (timeInWords.charAt(j) === ' ') {
+        abbreviated += timeInWords.charAt(j + 1);
+        break;
+      }
+      abbreviated += timeInWords.charAt(j);
+    }
+    return abbreviated;
   };
 
   return (
@@ -66,4 +63,4 @@ const ContentThumbs = (props) => {
   );
 };
 
-export default ContentThumbs;
+export default ContentListElement;
