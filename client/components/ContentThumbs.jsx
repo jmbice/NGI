@@ -40,25 +40,25 @@ const ContentThumbs = (props) => {
   };
 
   return (
-    <div className="thumbWrapper">
-      <div className="thumbImage">
+    <div className="listElementWrapper">
+      <div className="listElementImage">
         <img src={article.thumbnails[0].url} alt="small_thumbnail" />
       </div>
-      <div className="playSVG">
+      <div className="listElementSVG">
         {article.contentType === 'video'
           ? <PlaySVG time={convertDurationToTime(article.metadata.duration)} />
           : null
         }
       </div>
-      <div className="thumbText">
-        <div className="thumbPublication">
+      <div className="listElementText">
+        <div className="listElementPublication">
           {abbreviateDistanceInWordsToNow(article.metadata.publishDate)}
           {' '}
           -
-          <img className="textBubble" src={textBubble} alt="text_bubble" />
+          <img className="listElementCommentPNG" src={textBubble} alt="text_bubble" />
           {article.commentsCount === 0 ? null : article.commentsCount}
         </div>
-        <div className="thumbTitle">
+        <div className="listElementTitle">
           {article.metadata.title ? article.metadata.title : article.metadata.headline}
         </div>
       </div>
