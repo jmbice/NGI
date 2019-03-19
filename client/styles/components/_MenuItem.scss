@@ -1,0 +1,58 @@
+%menu-button {
+  background-color: $liteAccent;
+  width: 400px;
+  height: 100px;
+  font-size: 30px;
+  border: none;
+  border-radius: 5px;
+  color: $waistDeepGrey;
+}
+
+.menu-btn {
+  @extend %menu-button;
+  &:focus{
+    outline: none;
+    // this is because its what the mock up has, personally, I think there should
+    // be ARIA consideration here...
+  }
+  &:hover{
+    background-color: $shallowGrey;
+    color: $deepGrey;
+  }
+  &-active {
+    @extend %menu-button;
+    background: $ignRed;
+    color: $liteAccent;
+    &:focus{
+      outline:none;
+      // this is because its what the mock up has, personally, I think there should
+      // be ARIA consideration here...
+    }
+  }
+}
+
+.menuPNG{
+  pointer-events: none;
+  width: 35px;
+  height: auto;
+  float: left;
+  margin: 2px 0 0 100px;
+}
+
+.menuText {
+  width: 20px;
+  pointer-events: none;
+  float: right;
+  margin-right: 200px;
+}
+
+// 
+// .menuSVG {
+//   height: 20px;
+//   float: left;
+// }
+
+// think this isn not used
+// .menuText {
+//   float: right;
+// }
