@@ -1,5 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
+import PlaySVG from './PlaySVG';
+
 
 // import ign from '../../public/images/IGN_Logo.png';
 
@@ -20,10 +22,32 @@ const ContentThumbs = (props) => {
     return abbreviated;
   };
 
+  const convertDurationToTime = (s) => {
+    let time = '';
+    const hours = Math.floor(s / 3600);
+    let minutes = Math.floor((s - (hours * 3600)) / 60);
+    let seconds = s - (hours * 3600) - (minutes * 60);
+
+    if (minutes < 10 && hours > 0) { minutes = `0${minutes}`; }
+    if (seconds < 10) { seconds = `0${seconds}`; }
+
+    if (hours !== 0) { time += `${hours}:`; }
+    time += `${minutes}:`;
+    time += `${seconds}`;
+
+    return time;
+  };
+
   return (
     <div className="thumbWrapper">
       <div className="thumbImage">
         <img src={article.thumbnails[0].url} alt="small_thumbnail" />
+      </div>
+      <div className="playSVG">
+        {article.contentType === 'video'
+          ? <PlaySVG time={convertDurationToTime(article.metadata.duration)} />
+          : null
+        }
       </div>
       <div className="thumbText">
         <div className="thumbPublication">
