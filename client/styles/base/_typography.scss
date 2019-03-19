@@ -5,7 +5,7 @@ p {
 }
 
 h1 {
-  color: black;
+  color: $nightGrey;
   font-family: $theme-font;
   font-size: 70px;
   font-weight: 300;
@@ -13,7 +13,7 @@ h1 {
 }
 
 h2 {
-  color: $hotpink;
+  color: $ignRed;
   font-family: $theme-font;
   font-size: 40px;
   font-weight: 100;
