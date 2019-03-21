@@ -5,3 +5,34 @@
   #{$property}: -webkit-calc(#{$expression});
   #{$property}: calc(#{$expression});
 }
+
+// Breakpoint mixins:
+@mixin xs { // Extra small devices
+   @media (min-width: #{$screen-xs-min}) {
+       @content;
+   }
+}
+
+@mixin sm { // Small devices
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+@mixin md { // Medium devices
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+@mixin lg { // Large devices
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+@mixin xl { // Extra large devices
+   @media (min-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
