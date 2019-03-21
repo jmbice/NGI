@@ -1,48 +1,62 @@
-.listElementSVG {
-  margin-left: 10px;
-  margin-top: 180px;
-  position: absolute;
-}
-
-.listElementCommentPNG {
-  width: 20px;
-  height: auto;
-  margin: 0 10px;
-}
-
 .listElementWrapper {
-  width: 100%;
-  height: 350px;
+  @include calc(width, #{"100% -  #{$sidePadding * 2}"});
+  margin: 0 $sidePadding;
+  height: auto;
   border-bottom: 1px solid $skyGrey;
-  padding-top: 20px;
+  padding: $verticalPadSmall 0;
+  display: flex;
+  flex-flow: row wrap;
 }
 
-.listElementImage {
+.listElementWrapper > * {
+  flex: 1 100%;
+}
+
+@include md {
+  .listElementWrapper { padding: $verticalPadLarge 0; }
+  .newsImage { flex: 1 auto; }
+  .listElementText { flex: 1 auto; }
+  .listElementMedia { flex: 1 auto; }
+}
+
+.newsImage {
   float: left;
-  width: 500px;
   height: auto;
-  img {
-    width: 100%;
-    height: auto;
-  }
   &:hover {
     opacity: 0.75;
   }
 }
 
 .listElementText {
+  @include calc(width, #{"50% -  #{$sidePadding}"});
+  padding: 0 0 0 $sidePadding;
   float: right;
-  width: 45%;
   height: auto;
   font-family: $theme-font;
-  font-size: 40px;
+  font-size: 20px;
   color: $nightGrey;
+  font-weight: $comment-font-weight;
+}
+
+.listElementMedia {
+  @include calc(width, #{"50% -  #{$sidePadding}"});
+  padding: 0 $sidePadding 0 0;
+  font-family: $theme-font;
+  color: $liteAccent;
 }
 
 .listElementPublication {
   color: $ignRed;
-  font-size: 25px;
-  font-weight: 100;
+  font-size: $comment-size;
+  margin: 5px 0;
+  display: flex;
+  flex-flow: row;
+}
+
+.listElementCommentPNG {
+  width: 35px;
+  height: 25px;
+  margin: -2.8px -5px 0 -5px;
 }
 
 .listElementTitle {
@@ -51,4 +65,8 @@
     color: $linkBlue;
     text-decoration: underline;
   }
+}
+
+.spaceBetweenDateAndComments {
+  margin: 0 10px
 }
