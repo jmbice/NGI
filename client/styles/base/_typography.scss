@@ -1,4 +1,8 @@
-$theme-font: 'Impact', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+$theme-font: 'Lato', sans-serif;
+$comment-size: 15px;
+$comment-font-weight: 700; 
 
 p {
   font-size: 10px;
@@ -7,8 +11,8 @@ p {
 h1 {
   color: $nightGrey;
   font-family: $theme-font;
-  font-size: 70px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 700;
   margin: 0;
 }
 
