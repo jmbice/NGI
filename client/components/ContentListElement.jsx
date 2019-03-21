@@ -42,11 +42,21 @@ const ContentListElement = (props) => {
     return abbreviated;
   };
 
+  const loadBestImage = () => {
+    let bestImage;
+    for (let j = 2; j >= 0; j -= 1) {
+      if (window.innerWidth / 4 >= news.thumbnails[j].width) {
+        bestImage = news.thumbnails[j].url;
+      }
+    }
+    return bestImage || news.thumbnails[0].url;
+  };
+
   return (
     <div className="listElementWrapper">
       <div className="listElementMedia">
         <div className="newsImage">
-          <img src={textBubble} alt={news.contentType} />
+          <img src={loadBestImage()} alt={news.contentType} />
         </div>
         {news.contentType === 'video'
           ? <PlayPng time={convertDurationToTime(news.metadata.duration)} />
