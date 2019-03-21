@@ -45,8 +45,9 @@ const ContentListElement = (props) => {
   const loadBestImage = () => {
     let bestImage;
     for (let j = 2; j >= 0; j -= 1) {
-      if (window.innerWidth / 4 >= news.thumbnails[j].width) {
+      if (window.innerWidth / 3.75 >= news.thumbnails[j].width) {
         bestImage = news.thumbnails[j].url;
+        break;
       }
     }
     return bestImage || news.thumbnails[0].url;
