@@ -7,12 +7,16 @@
   border-bottom: 1px solid $skyGrey;
 }
 
+.rootBody {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
 .rootContent {
-  width: 65%;
-  float: right;
+  width: 75%;
 }
 
 .rootMenu {
-  width: 30%;
-  float: left;
+  width: 25%;
 }
