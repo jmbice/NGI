@@ -7,10 +7,10 @@ const ContentListElement = (props) => {
   const { news } = props;
 
   const convertDurationToTime = (s) => {
-    let time = '';
     const hours = Math.floor(s / 3600);
     let minutes = Math.floor((s - (hours * 3600)) / 60);
     let seconds = s - (hours * 3600) - (minutes * 60);
+    let time = '';
 
     if (minutes < 10 && hours > 0) { minutes = `0${minutes}`; }
     if (seconds < 10) { seconds = `0${seconds}`; }
