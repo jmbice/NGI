@@ -1,0 +1,54 @@
+.rootWrapper {
+  margin: 0 auto;
+  width: 320px;
+  @include sm {
+    width: 576px;
+    h1 {
+      font-size: 20px;
+    }
+  }
+
+  @include md {
+    width: 992px;
+    h1 {
+      font-size: 40px;
+    }
+  }
+
+  @include lg {
+    width: 1280px;
+    h1 {
+      font-size: 50px;
+    }
+  }
+
+  @include xl {
+    width: 1800px;
+    h1 {
+      font-size: 60px;
+    }
+  }
+}
+
+.rootHeader {
+  width: 100%;
+  border-bottom: 1px solid $skyGrey;
+  padding: 0 0 $titlePadding 0;
+}
+
+.rootBody {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
+.rootContent {
+  width: 75%;
+  @include sm {
+    width: 50%;
+  }
+}
+
+.rootMenu {
+  width: 25%;
+}

@@ -19,8 +19,8 @@ const MenuItem = (props) => {
       onMouseOver={e => e.currentTarget.children[0].src = latestHover}
       onMouseLeave={e => e.currentTarget.children[0].src = item}
     >
-      <img className="menuPNG" src={item} alt="test" />
-      <div className="menuText"> {text} </div>
+      <img className="menuPNG" src={item} alt="latest" />
+      <div className="menuText">{text}</div>
     </button>
   );
 };

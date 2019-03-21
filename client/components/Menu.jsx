@@ -16,8 +16,7 @@ const Menu = (props) => {
   const { filter, changeFilter } = props;
 
   return (
-    <div>
-      <br />
+    <div className="menuWrapper">
       <MenuItem
         filter={filter}
         changeFilter={changeFilter}
@@ -27,7 +26,6 @@ const Menu = (props) => {
         active={latestActive}
         selected={latestSelected}
       />
-      <br />
       <MenuItem
         filter={filter}
         changeFilter={changeFilter}
@@ -37,7 +35,6 @@ const Menu = (props) => {
         active={videosActive}
         selected={videosSelected}
       />
-      <br />
       <MenuItem
         filter={filter}
         changeFilter={changeFilter}

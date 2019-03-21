@@ -2,10 +2,10 @@ import React from 'react';
 import ContentListElement from './ContentListElement';
 
 const ContentList = (props) => {
-  const { content } = props;
+  const { content, show } = props;
   return (
-    <ul>
-      {content.map(e => <ContentListElement article={e} key={e.contentId} />)}
+    <ul className={show ? 'contentListWrapper-show' : 'contentListWrapper-hide'}>
+      {content.map(e => <ContentListElement news={e} key={e.contentId} />)}
     </ul>
   );
 };

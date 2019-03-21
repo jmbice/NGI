@@ -1,0 +1,12 @@
+.menuWrapper {
+  width:100%;
+  @include calc(width, #{"100% -  #{$sidePadding}"});
+  margin: 0 $sidePadding 0 0;
+  display: flex;
+  flex-flow: column;
+  padding: $verticalPadSmall 0 0 0;
+  
+  @include md {
+    padding: $verticalPadLarge 0 0 0;
+  }
+}

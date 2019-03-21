@@ -6,11 +6,13 @@ class Root extends React.Component {
   constructor(props) {
     super(props);
     this.changeFilter = this.changeFilter.bind(this);
+    this.fadeAnimation = this.fadeAnimation.bind(this);
     this.state = {
       allContent: [],
       videos: [],
       articles: [],
       filter: 'latest',
+      show: false,
     };
   }
 
@@ -31,8 +33,16 @@ class Root extends React.Component {
           allContent: d.data,
           videos,
           articles,
+        }, () => {
+          this.fadeAnimation();
         });
       });
+  }
+
+  fadeAnimation() {
+    setTimeout(() => {
+      this.setState({ show: true });
+    }, 100);
   }
 
   changeFilter(e) {
@@ -45,14 +55,17 @@ class Root extends React.Component {
     if (target === 'latest') { newFilter = 'latest'; }
     if (target === 'videos') { newFilter = 'videos'; }
     if (target === 'articles') { newFilter = 'articles'; }
-    this.setState({ filter: newFilter });
+    this.setState({ filter: newFilter, show: false }, () => {
+      this.fadeAnimation();
+    });
   }
 
   render() {
     const {
-      allContent, videos, articles, filter,
+      allContent, videos, articles, filter, show,
     } = this.state;
     let content;
+
     if (filter === 'latest') {
       content = allContent;
     }
@@ -65,17 +78,22 @@ class Root extends React.Component {
 
     return (
       <div className="rootWrapper">
-        <h1> Latest News </h1>
-        <div className="rootMenu">
-          <Menu
-            filter={filter}
-            changeFilter={this.changeFilter}
-          />
+        <div className="rootHeader">
+          <h1> Latest News </h1>
         </div>
-        <div className="rootContent">
-          <ContentList
-            content={content}
-          />
+        <div className="rootBody">
+          <div className="rootMenu">
+            <Menu
+              filter={filter}
+              changeFilter={this.changeFilter}
+            />
+          </div>
+          <div className="rootContent">
+            <ContentList
+              content={content}
+              show={show}
+            />
+          </div>
         </div>
       </div>
     );
