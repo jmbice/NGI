@@ -3,13 +3,17 @@
 @import './base/_typography.scss';
 @import './base/_defaults.scss';
 
+//abstract
+@import './abstract/_mixins.scss';
+
 //layout
-@import './layout/_layout.scss';
+@import './layout/_variables.scss';
+@import './layout/_breakpoints.scss';
 
 //components
 @import './components/_ContentList.scss';
 @import './components/_ContentListElement.scss';
-@import './components/_PlaySVG.scss';
 @import './components/_Menu.scss';
 @import './components/_MenuItem.scss';
 @import './components/_Root.scss';
+@import './components/_PlayPng.scss';
