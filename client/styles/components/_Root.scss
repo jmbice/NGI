@@ -1,10 +1,12 @@
 .rootWrapper {
-  width: 100%;
+  margin: 0 auto;
+  width: 320px;
 }
 
 .rootHeader {
   width: 100%;
   border-bottom: 1px solid $skyGrey;
+  padding: 0 0 $titlePadding 0;
 }
 
 .rootBody {
