@@ -1,1 +1,17 @@
+.contentListWrapper-hide {
+  padding: 0;
+  margin: 0;
+  visibility: hidden;
+  opacity: 0;
+}
 
+.contentListWrapper-show {
+  padding: 0;
+  margin: 0;
+  -webkit-transition: 2s;
+  -moz-transition: 2s;
+  -o-transition: 2s;
+  transition: 2s;
+  visibility: visible;
+  opacity: 1;
+}
