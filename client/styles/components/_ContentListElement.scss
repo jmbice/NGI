@@ -19,14 +19,6 @@
   .listElementMedia { flex: 1 auto; }
 }
 
-.newsImage {
-  float: left;
-  height: auto;
-  &:hover {
-    opacity: 0.75;
-  }
-}
-
 .listElementText {
   @include calc(width, #{"50% -  #{$sidePadding}"});
   padding: 0 0 0 $sidePadding;
@@ -43,6 +35,14 @@
   padding: 0 $sidePadding 0 0;
   font-family: $theme-font;
   color: $liteAccent;
+}
+
+.newsImage {
+  float: left;
+  height: auto;
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
 .listElementPublication {
