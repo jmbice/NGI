@@ -43,13 +43,13 @@ const ContentListElement = (props) => {
   };
 
   const loadBestImage = () => {
+    //return small image if screen is small
+    if (screen.width && screen.width < 1800) { return news.thumbnails[0].url; }
+
+    //if screen is large, provide the appropriate image based on screen and window
     const width = window.innerWidth;
-    if (width < 1800) {
-      return news.thumbnails[0].url;
-    }
-    if (width >= 1800 && width < 2500) {
-      return news.thumbnails[1].url;
-    }
+    if (width < 1800) { return news.thumbnails[0].url; }
+    if ((width >= 1800 && width < 2500) || screen.width < 2500) { return news.thumbnails[1].url; }
     return news.thumbnails[2].url;
   };
 
