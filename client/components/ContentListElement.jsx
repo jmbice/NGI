@@ -1,10 +1,10 @@
 import React from 'react';
 import dateFns from 'date-fns';
-import textBubble from '../../public/images/text_bubble.png';
-import PlaySVG from './PlaySVG';
+import textBubble from '../../public/images/chat.png';
+import PlayPng from './PlayPng';
 
 const ContentListElement = (props) => {
-  const { article } = props;
+  const { news } = props;
 
   const convertDurationToTime = (s) => {
     let time = '';
@@ -25,38 +25,43 @@ const ContentListElement = (props) => {
   const abbreviateDistanceInWordsToNow = (time) => {
     const timeInWords = dateFns.distanceInWordsToNow(time);
     let abbreviated = '';
+    let numberFound = false;
 
     for (let j = 0; j < timeInWords.length; j += 1) {
-      if (timeInWords.charAt(j) === ' ') {
-        abbreviated += timeInWords.charAt(j + 1);
-        break;
+      if (/[0-9]/.test(timeInWords.charAt(j))) {
+        numberFound = true;
       }
-      abbreviated += timeInWords.charAt(j);
+      if (numberFound === true) {
+        if (timeInWords.charAt(j) === ' ' && j + 1 < timeInWords.length) {
+          abbreviated += timeInWords.charAt(j + 1);
+          break;
+        }
+        abbreviated += timeInWords.charAt(j);
+      }
     }
     return abbreviated;
   };
 
   return (
     <div className="listElementWrapper">
-      <div className="listElementImage">
-        <img src={article.thumbnails[0].url} alt="small_thumbnail" />
-      </div>
-      <div className="listElementSVG">
-        {article.contentType === 'video'
-          ? <PlaySVG time={convertDurationToTime(article.metadata.duration)} />
+      <div className="listElementMedia">
+        <div className="newsImage">
+          <img src={textBubble} alt={news.contentType} />
+        </div>
+        {news.contentType === 'video'
+          ? <PlayPng time={convertDurationToTime(news.metadata.duration)} />
           : null
         }
       </div>
       <div className="listElementText">
         <div className="listElementPublication">
-          {abbreviateDistanceInWordsToNow(article.metadata.publishDate)}
-          {' '}
-          -
-          <img className="listElementCommentPNG" src={textBubble} alt="text_bubble" />
-          {article.commentsCount === 0 ? null : article.commentsCount}
+          {abbreviateDistanceInWordsToNow(news.metadata.publishDate)}
+          <div className="spaceBetweenDateAndComments">-</div>
+          <img className="listElementCommentPNG" src={textBubble} alt="comments" />
+          {news.commentsCount === 0 ? null : news.commentsCount}
         </div>
         <div className="listElementTitle">
-          {article.metadata.title ? article.metadata.title : article.metadata.headline}
+          {news.metadata.title ? news.metadata.title : news.metadata.headline}
         </div>
       </div>
     </div>
