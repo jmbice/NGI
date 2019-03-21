@@ -52,6 +52,7 @@ class Root extends React.Component {
     const {
       allContent, videos, articles, filter,
     } = this.state;
+
     let content;
     if (filter === 'latest') {
       content = allContent;
@@ -68,16 +69,18 @@ class Root extends React.Component {
         <div className="rootHeader">
           <h1> Latest News </h1>
         </div>
-        <div className="rootMenu">
-          <Menu
-            filter={filter}
-            changeFilter={this.changeFilter}
-          />
-        </div>
-        <div className="rootContent">
-          <ContentList
-            content={content}
-          />
+        <div className="rootBody">
+          <div className="rootMenu">
+            <Menu
+              filter={filter}
+              changeFilter={this.changeFilter}
+            />
+          </div>
+          <div className="rootContent">
+            <ContentList
+              content={content}
+            />
+          </div>
         </div>
       </div>
     );
