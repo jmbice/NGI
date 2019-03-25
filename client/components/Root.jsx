@@ -85,11 +85,13 @@ class Root extends React.Component {
   changeFilter(e) {
     const { filter } = this.state;
     const target = e.target.value;
-    if (target === filter) {
+    if (target === filter && target !== 'latest') {
       return;
     }
     let newFilter;
-    if (target === 'latest') { newFilter = 'latest'; }
+    if (target === 'latest') {
+      newFilter = 'latest';
+    }
     if (target === 'videos') { newFilter = 'videos'; }
     if (target === 'articles') { newFilter = 'articles'; }
     this.setState({ filter: newFilter, show: false }, () => {
