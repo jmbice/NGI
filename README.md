@@ -12,10 +12,10 @@ To run this repository:
 1) Clone the repository to your local machine
 2) In the terminal run the following 3 commands:
 
-  'NPM install'  - loads dependencies
+    'NPM install'  - loads dependencies
   
-  'NPM Start'  - starts server
+    'NPM Start'  - starts server
   
-  'NPM run dev'  - starts webpack in development mode
+    'NPM run dev'  - starts webpack in development mode
   
 3) Start browser and listen at: 'localhost:3000'
