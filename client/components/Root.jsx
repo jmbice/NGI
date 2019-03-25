@@ -7,6 +7,7 @@ class Root extends React.Component {
     super(props);
     this.changeFilter = this.changeFilter.bind(this);
     this.fadeAnimation = this.fadeAnimation.bind(this);
+    this.getLatest = this.getLatest.bind(this);
     this.state = {
       allContent: [],
       videos: [],
@@ -17,27 +18,63 @@ class Root extends React.Component {
   }
 
   componentDidMount() {
+    this.getLatest();
+  }
+
+  getLatest() {
+    const { allContent } = this.state;
     fetch('/content')
       .then(res => res.json())
       .then((d) => {
         const videos = [];
         const articles = [];
-        d.data.map((e, i) => {
-          e.commentsCount = d.comments[i].count;
-          e.commentsId = d.comments[i].id;
+        const ids = [];
+        d.data.map((e) => {
+          e.commentsCount = 0;
           if (e.contentType === 'article') { articles.push(e); }
           if (e.contentType === 'video') { videos.push(e); }
+          ids.push(e.contentId);
           return e;
         });
+
+        if (allContent.length > 0 && ids[0] === allContent[0].contentId) { return; }
         this.setState({
-          allContent: d.data,
           videos,
           articles,
+          allContent: d.data,
         }, () => {
           this.fadeAnimation();
+          this.getComments(ids);
         });
       });
   }
+
+  getComments(ids) {
+    const { allContent } = this.state;
+    const newContent = [...allContent];
+    const videos = [];
+    const articles = [];
+
+    fetch(`/comments/${ids}`)
+      .then(res => res.json())
+      .then((d) => {
+        d.content.map((e, i) => {
+          if (newContent[i].contentId === e.id) {
+            newContent[i].commentsCount = e.count;
+            if (newContent[i].contentType === 'article') { articles.push(newContent[i]); }
+            if (newContent[i].contentType === 'video') { videos.push(newContent[i]); }
+          }
+          return e;
+        });
+
+        this.setState({
+          videos,
+          articles,
+          allContent: newContent,
+        });
+      });
+  }
+
 
   fadeAnimation() {
     setTimeout(() => {
@@ -48,11 +85,13 @@ class Root extends React.Component {
   changeFilter(e) {
     const { filter } = this.state;
     const target = e.target.value;
-    if (target === filter) {
+    if (target === filter && target !== 'latest') {
       return;
     }
     let newFilter;
-    if (target === 'latest') { newFilter = 'latest'; }
+    if (target === 'latest') {
+      newFilter = 'latest';
+    }
     if (target === 'videos') { newFilter = 'videos'; }
     if (target === 'articles') { newFilter = 'articles'; }
     this.setState({ filter: newFilter, show: false }, () => {

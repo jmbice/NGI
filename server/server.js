@@ -28,26 +28,21 @@ app.get('/content', (req, res) => {
     if (error) {
       res.status(response.statusCode).send();
     } else {
-      // if successful, get Ids
-      let newsIds = '';
-      const data = JSON.parse(body).data.map((ele, ind) => {
-        newsIds += ind !== 0 ? ',' : '';
-        newsIds += ele.contentId;
-        return ele;
-      });
-
-      // use Ids to request comment counts
-      request(`https://ign-apis.herokuapp.com/comments?ids=${newsIds}`, (e, r, b) => {
-        if (e) {
-          res.status(r.statusCode).send();
-        } else {
-          // join comment counts to data
-          res.status(r.statusCode).send(JSON.stringify({ data, comments: JSON.parse(b).content }));
-        }
-      });
+      res.status(response.statusCode).send(body);
     }
   });
 });
+
+app.get('/comments/:ids', (req, res) => {
+  request(`https://ign-apis.herokuapp.com/comments?ids=${req.params.ids}`, (error, response, body) => {
+    if (error) {
+      res.status(response.statusCode).send();
+    } else {
+      res.status(response.statusCode).send(body);
+    }
+  });
+});
+
 
 // listening...
 app.listen(port, () => console.log(`IGN-webApp-FE listening on port ${port}!`));
