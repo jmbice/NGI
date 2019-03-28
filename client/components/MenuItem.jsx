@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MenuItem = (props) => {
-  const { itemType, text, changeFilter, filter, passive, active, selected } = props;
+  const { itemType, title, changeFilter, filter, passive, active, selected } = props;
 
   return (
     <button
@@ -11,7 +11,7 @@ const MenuItem = (props) => {
       onClick={changeFilter}
     >
       <div className={`png-${itemType}`} alt="latest" />
-      <div className="menuTitles">{text}</div>
+      <div className="menuTitles">{title}</div>
     </button>
   );
 };
