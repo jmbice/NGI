@@ -94,9 +94,11 @@
 
 .menu-btn {
   @extend %menu-button;
+
   &:focus{
     outline: none;
   }
+
   &:hover{
     background-color: $shallowGrey;
     color: $deepGrey;
@@ -112,6 +114,7 @@
       background-image: url("../../public/images/videos_active.png");
     }
   }
+  
   &-active {
     @extend %menu-button;
     background: $ignRed;
@@ -124,7 +127,6 @@
     }
     .png-articles {
       background-image: url("../../public/images/articles_selected.png");
-
     }
     .png-videos {
       background-image: url("../../public/images/videos_selected.png");
