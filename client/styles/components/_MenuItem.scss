@@ -102,8 +102,6 @@
   @extend %menu-button;
   &:focus{
     outline: none;
-    // this is because its what the mock up has, personally, I think there should
-    // be ARIA consideration here...
   }
   &:hover{
     background-color: $shallowGrey;
@@ -115,8 +113,6 @@
     color: $liteAccent;
     &:focus{
       outline:none;
-      // this is because its what the mock up has, personally, I think there should
-      // be ARIA consideration here...
     }
   }
 }
