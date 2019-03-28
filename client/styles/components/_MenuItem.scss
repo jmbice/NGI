@@ -126,5 +126,20 @@
     &:focus{
       outline:none;
     }
+    .png-latest {
+      @extend %menuPNG;
+      background-image: url("../../public/images/latest_selected.png");
+    }
+
+    .png-articles {
+      @extend %menuPNG;
+      background-image: url("../../public/images/articles_selected.png");
+
+    }
+
+    .png-videos {
+      @extend %menuPNG;
+      background-image: url("../../public/images/videos_selected.png");
+    }
   }
 }
