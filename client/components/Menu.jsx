@@ -23,7 +23,7 @@ const Menu = (props) => {
         filter={filter}
         changeFilter={changeFilter}
         itemType="articles"
-        title="Articles"d}
+        title="Articles"
       />
     </div>
   );
