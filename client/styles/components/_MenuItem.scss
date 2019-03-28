@@ -4,6 +4,8 @@
   height: 35px;
   margin: 0 0 0 30px;
   pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 %menu-button {
@@ -23,22 +25,16 @@
   .png-latest {
     @extend %menuPNG;
     background-image: url("../../public/images/latest_passive.png");
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
   .png-articles {
     @extend %menuPNG;
     background-image: url("../../public/images/articles_passive.png");
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
   .png-videos {
     @extend %menuPNG;
     background-image: url("../../public/images/videos_passive.png");
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
   .menuTitles {
