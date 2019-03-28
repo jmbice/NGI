@@ -1,18 +1,7 @@
-%menuPNG {
-  display: block;
-  width: 35px;
-  height: 35px;
-  margin: 0 0 0 30px;
-  pointer-events: none;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
 %menu-button {
   background-color: $liteAccent;
   width: $minimumMenuLength;
-  height: 50px;
-  font-size: 30px;
   border: none;
   border-radius: 5px;
   color: $waistDeepGrey;
@@ -21,6 +10,15 @@
   align-items: center;
   align-content: center;
 
+  %menuPNG {
+    display: block;
+    width: 35px;
+    height: 35px;
+    margin: 0 0 0 30px;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
   .png-latest {
     @extend %menuPNG;
@@ -123,18 +121,15 @@
       outline:none;
     }
     .png-latest {
-      @extend %menuPNG;
       background-image: url("../../public/images/latest_selected.png");
     }
 
     .png-articles {
-      @extend %menuPNG;
       background-image: url("../../public/images/articles_selected.png");
 
     }
 
     .png-videos {
-      @extend %menuPNG;
       background-image: url("../../public/images/videos_selected.png");
     }
   }
