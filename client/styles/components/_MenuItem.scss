@@ -106,6 +106,18 @@
   &:hover{
     background-color: $shallowGrey;
     color: $deepGrey;
+    .png-latest {
+      background-image: url("../../public/images/latest_active.png");
+    }
+
+    .png-articles {
+      background-image: url("../../public/images/articles_active.png");
+
+    }
+
+    .png-videos {
+      background-image: url("../../public/images/videos_active.png");
+    }
   }
   &-active {
     @extend %menu-button;
