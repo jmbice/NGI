@@ -11,19 +11,19 @@ const Menu = (props) => {
         filter={filter}
         changeFilter={changeFilter}
         itemType="latest"
-        text="Latest"
+        title="Latest"
       />
       <MenuItem
         filter={filter}
         changeFilter={changeFilter}
         itemType="videos"
-        text="Videos"
+        title="Videos"
       />
       <MenuItem
         filter={filter}
         changeFilter={changeFilter}
         itemType="articles"
-        text="Articles"d}
+        title="Articles"d}
       />
     </div>
   );
