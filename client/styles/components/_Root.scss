@@ -22,7 +22,6 @@
 .rootHeader-hidden {
   @extend %dryHeader;
   opacity: 0;
-  height: 0;
 }
 
 .header-title {
@@ -47,6 +46,7 @@
   overflow: hidden;
   margin-top: 50px;
   z-index: 1;
+
 }
 
 .body-left {
@@ -60,7 +60,10 @@
     padding: 10px 5px;
     margin: 0 0 0 5px;
   }
-  .body-content { margin: 0 }
+  .body-content {
+    width: 75%;
+    margin: 0;
+  }
   .body-left {
     width: 25%;
     margin: 40px 0 0 0;
