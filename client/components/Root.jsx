@@ -17,6 +17,7 @@ class Root extends React.Component {
       show: false,
       prevScrollPosition: window.pageYOffset,
       menuVisible: true,
+      screenWidth: 0,
     };
   }
 
@@ -24,6 +25,9 @@ class Root extends React.Component {
     this.getLatest();
     // Adds an event listener when the component is mount.
     window.addEventListener('scroll', this.handleMenuScroll);
+    this.setState({
+      screenWidth: screen.width,
+    })
   }
 
   componentWillUnmount() {
@@ -122,7 +126,7 @@ class Root extends React.Component {
 
   render() {
     const {
-      allContent, videos, articles, filter, show, menuVisible,
+      allContent, videos, articles, filter, show, menuVisible, screenWidth,
     } = this.state;
     let content;
 
@@ -154,6 +158,7 @@ class Root extends React.Component {
             <ContentList
               content={content}
               show={show}
+              width={screenWidth}
             />
           </div>
         </div>

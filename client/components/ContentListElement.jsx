@@ -4,7 +4,7 @@ import textBubble from '../../public/images/chat.png';
 import PlayPng from './PlayPng';
 
 const ContentListElement = (props) => {
-  const { news } = props;
+  const { news, screenWidth } = props;
 
   const convertDurationToTime = (s) => {
     const hours = Math.floor(s / 3600);
@@ -43,13 +43,11 @@ const ContentListElement = (props) => {
   };
 
   const loadBestImage = () => {
-    //return small image if screen is small
-    if (screen.width && screen.width < 1800) { return news.thumbnails[0].url; }
+    if (screenWidth && screenWidth < 1800) { return news.thumbnails[0].url; }
 
-    //if screen is large, provide the appropriate image based on screen and window
     const width = window.innerWidth;
     if (width < 1800) { return news.thumbnails[0].url; }
-    if ((width >= 1800 && width < 2500) || screen.width < 2500) { return news.thumbnails[1].url; }
+    if ((width >= 1800 && width < 2500) || screenWidth < 2500) { return news.thumbnails[1].url; }
     return news.thumbnails[2].url;
   };
 
