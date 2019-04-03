@@ -12,13 +12,6 @@
   flex: 1 100%;
 }
 
-@include md {
-  .listElementWrapper { padding: $verticalPadLarge 0; }
-  .newsImage { flex: 1 auto; }
-  .listElementText { flex: 1 auto; }
-  .listElementMedia { flex: 1 auto; }
-}
-
 .listElementText {
   @include calc(width, #{"50% -  #{$sidePadding}"});
   padding: 0 0 0 $sidePadding;
@@ -70,4 +63,18 @@
 
 .spaceBetweenDateAndComments {
   margin: 0 10px
+}
+
+@include sm {
+  .listElementWrapper{
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@include md {
+  .listElementWrapper { padding: $verticalPadLarge 0; }
+  .newsImage { flex: 1 auto; }
+  .listElementText { flex: 1 auto; }
+  .listElementMedia { flex: 1 auto; }
 }
