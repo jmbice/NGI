@@ -8,17 +8,27 @@ class Root extends React.Component {
     this.changeFilter = this.changeFilter.bind(this);
     this.fadeAnimation = this.fadeAnimation.bind(this);
     this.getLatest = this.getLatest.bind(this);
+    this.handleMenuScroll = this.handleMenuScroll.bind(this);
     this.state = {
       allContent: [],
       videos: [],
       articles: [],
       filter: 'latest',
       show: false,
+      prevScrollPosition: window.pageYOffset,
+      menuVisible: true,
     };
   }
 
   componentDidMount() {
     this.getLatest();
+    // Adds an event listener when the component is mount.
+    window.addEventListener('scroll', this.handleMenuScroll);
+  }
+
+  componentWillUnmount() {
+    // Remove the event listener when the component is unmount.
+    window.removeEventListener('scroll', this.handleMenuScroll);
   }
 
   getLatest() {
@@ -98,9 +108,21 @@ class Root extends React.Component {
     });
   }
 
+  handleMenuScroll() {
+    const { prevScrollPosition } = this.state;
+
+    const currentScroll = window.pageYOffset;
+    const menuVisible = prevScrollPosition > currentScroll;
+
+    this.setState({
+      prevScrollPosition: currentScroll,
+      menuVisible,
+    });
+  }
+
   render() {
     const {
-      allContent, videos, articles, filter, show,
+      allContent, videos, articles, filter, show, menuVisible,
     } = this.state;
     let content;
 
@@ -115,7 +137,7 @@ class Root extends React.Component {
     }
     return (
       <div className="rootWrapper">
-        <div className="root-header">
+        <div className={menuVisible ? 'rootHeader' : 'rootHeader-hidden'}>
           <div className="header-title">
             Gamer News
           </div>
@@ -123,6 +145,7 @@ class Root extends React.Component {
         <div className="rootBody">
           <div className="body-left">
             <Menu
+              menuVisible={menuVisible}
               filter={filter}
               changeFilter={this.changeFilter}
             />
