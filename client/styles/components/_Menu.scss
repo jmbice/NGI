@@ -1,31 +1,49 @@
-.menuWrapper {
+%dryMenu {
   width:100%;
   margin: 0 0 0 120px;
   display: flex;
   flex-flow: row;
   position: fixed;
-  &-hidden {
-    margin: -200px;
-  }
+}
 
-  @include sm {
+.menuWrapper {
+  @extend %dryMenu;
+}
+
+.menuWrapper-hidden {
+  @extend %dryMenu;
+  margin: -200px;
+}
+
+@include sm {
+  %dryMenu {
     width: auto;
     margin: $verticalPadLarge $sidePadding 0 0;
-    display: flex;
     flex-flow: column;
     padding: $verticalPadSmall 0 0 0;
   }
+  .menuWrapper-hidden {
+    margin: $verticalPadLarge $sidePadding 0 0;
+  }
+}
 
-  @include md {
+@include md {
+  %dryMenu {
     width: 260px;
     margin: 0;
     padding: $verticalPadLarge 0 0 0;
   }
-  @include lg {
+}
+
+@include lg {
+  %dryMenu {
     margin: $verticalPadLarge $sidePadding 0 0;
     width: 330px;
   }
-  @include xl {
+}
+
+@include xl {
+  %dryMenu {
     width: 460px;
   }
 }
