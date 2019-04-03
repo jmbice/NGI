@@ -75,7 +75,6 @@ class Root extends React.Component {
       });
   }
 
-
   fadeAnimation() {
     setTimeout(() => {
       this.setState({ show: true });
@@ -114,20 +113,21 @@ class Root extends React.Component {
     if (filter === 'articles') {
       content = articles;
     }
-
     return (
       <div className="rootWrapper">
-        <div className="rootHeader">
-          <h1> Latest News </h1>
+        <div className="root-header">
+          <div className="header-title">
+            Gamer News
+          </div>
         </div>
         <div className="rootBody">
-          <div className="rootMenu">
+          <div className="body-left">
             <Menu
               filter={filter}
               changeFilter={this.changeFilter}
             />
           </div>
-          <div className="rootContent">
+          <div className="body-content">
             <ContentList
               content={content}
               show={show}
