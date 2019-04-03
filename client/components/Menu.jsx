@@ -3,10 +3,10 @@ import MenuItem from './MenuItem';
 
 
 const Menu = (props) => {
-  const { filter, changeFilter } = props;
+  const { filter, changeFilter, menuVisible } = props;
 
   return (
-    <div className="menuWrapper">
+    <div className={menuVisible ? 'menuWrapper' : 'menuWrapper-hidden'}>
       <MenuItem
         filter={filter}
         changeFilter={changeFilter}
