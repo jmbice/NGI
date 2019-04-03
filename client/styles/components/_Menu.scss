@@ -17,7 +17,7 @@
 
 @include sm {
   %dryMenu {
-    width: auto;
+    width: 140px;
     margin: $verticalPadLarge $sidePadding 0 0;
     flex-flow: column;
     padding: $verticalPadSmall 0 0 0;
@@ -29,7 +29,7 @@
 
 @include md {
   %dryMenu {
-    width: 260px;
+    width: 240px;
     margin: 0;
     padding: $verticalPadLarge 0 0 0;
   }
@@ -38,12 +38,12 @@
 @include lg {
   %dryMenu {
     margin: $verticalPadLarge $sidePadding 0 0;
-    width: 330px;
+    width: 310px;
   }
 }
 
 @include xl {
   %dryMenu {
-    width: 460px;
+    width: 435px;
   }
 }
