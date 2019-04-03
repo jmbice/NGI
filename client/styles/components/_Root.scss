@@ -31,10 +31,45 @@
 }
 
 .rootHeader {
-  width: 100%;
+  width:100%
+  width: 98%;
+  height: 50px;
+  margin: -13px 0 0 -5px;
   border-bottom: 1px solid $skyGrey;
   padding: 0 0 $titlePadding 0;
+  background-color: white;
+  position: fixed;
+  display: flex;
+  flex-flow: row;
+  z-index: 2;
+  &-hidden {
+    height:0;
+    opacity: 0;
+    @include sm {
+      height: auto;
+      width: 120px;
+      opacity: 1;
+    }
+  }
+  @include sm {
+    width: 120px;
+    height: auto;
+    margin: 0 0 0 -3px;
+    background-color: inherit;
+    border-bottom: 0px
+  }
+  @include md {
+    width: 250px;
+    margin-left: -10px;
+  }
+  @include lg {
+    width: 320px;
+  }
+  @include xl {
+    width: 420px;
+  }
 }
+
 
 .header-title {
   width: 100px;
@@ -45,7 +80,22 @@
   color: $ignRed;
   font-size: 20px;
   font-weight: 600;
+
+  @include sm {
+      width: 100%;
+      padding: 10px 5px;
+      margin: 0 0 0 10%;
+  }
+  @include md {
+      font-size: 30px;
+      margin: 10px 0 0 10%;
+  }
+  @include lg {
+      font-size: 40px;
+  }
 }
+
+
 
 .rootBody {
   width: 100%;
@@ -54,12 +104,26 @@
 }
 
 .body-content {
-  width: 75%;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
+  z-index: 1;
   @include sm {
+    margin:0;
+  }
+  @include md {
     width: 50%;
   }
 }
 
 .body-left {
-  width: 25%;
+  z-index: 2;
+  width: 2.5%;
+  @include sm {
+    width: 25%;
+    margin: 40px 0 0 0;
+  }
+  @include md {
+    margin: 55px 0 0 0;
+  }
 }
