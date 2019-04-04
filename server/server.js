@@ -26,7 +26,9 @@ app.get('/content', (req, res) => {
   // gets all content  (20 max)
   request('https://ign-apis.herokuapp.com/content?count=20', (error, response, body) => {
     if (error) {
-      res.status(response.statusCode).send();
+      if (response) {
+        res.status(response.statusCode).send();
+      } else { console.log('error getting content'); }
     } else {
       res.status(response.statusCode).send(body);
     }
