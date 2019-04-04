@@ -23,15 +23,13 @@ class Root extends React.Component {
 
   componentDidMount() {
     this.getLatest();
-    // Adds an event listener when the component is mount.
     window.addEventListener('scroll', this.handleMenuScroll);
     this.setState({
       screenWidth: screen.width,
-    })
+    });
   }
 
   componentWillUnmount() {
-    // Remove the event listener when the component is unmount.
     window.removeEventListener('scroll', this.handleMenuScroll);
   }
 
@@ -52,6 +50,7 @@ class Root extends React.Component {
         });
 
         if (allContent.length > 0 && ids[0] === allContent[0].contentId) { return; }
+
         this.setState({
           videos,
           articles,
@@ -102,9 +101,7 @@ class Root extends React.Component {
       return;
     }
     let newFilter;
-    if (target === 'latest') {
-      newFilter = 'latest';
-    }
+    if (target === 'latest') { newFilter = 'latest'; }
     if (target === 'videos') { newFilter = 'videos'; }
     if (target === 'articles') { newFilter = 'articles'; }
     this.setState({ filter: newFilter, show: false }, () => {
@@ -114,7 +111,6 @@ class Root extends React.Component {
 
   handleMenuScroll() {
     const { prevScrollPosition } = this.state;
-
     const currentScroll = window.pageYOffset;
     const menuVisible = prevScrollPosition > currentScroll;
 
@@ -130,15 +126,10 @@ class Root extends React.Component {
     } = this.state;
     let content;
 
-    if (filter === 'latest') {
-      content = allContent;
-    }
-    if (filter === 'videos') {
-      content = videos;
-    }
-    if (filter === 'articles') {
-      content = articles;
-    }
+    if (filter === 'latest') { content = allContent; }
+    if (filter === 'videos') { content = videos; }
+    if (filter === 'articles') { content = articles; }
+
     return (
       <div className="rootWrapper">
         <div className={menuVisible ? 'rootHeader' : 'rootHeader-hidden'}>
