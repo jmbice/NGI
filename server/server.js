@@ -16,10 +16,9 @@ app.use((req, res, next) => {
 });
 
 
-// build API calls here
-app.get('/content', (req, res) => {
-  // gets all content  (20 max)
-  request('https://ign-apis.herokuapp.com/content?count=20', (error, response, body) => {
+app.get('/content/:count', (req, res) => {
+  // gets content based on count (count min = 1, max = 20)
+  request(`https://ign-apis.herokuapp.com/content?count=${req.params.count}`, (error, response, body) => {
     if (error) {
       if (response) {
         res.status(response.statusCode).send();
