@@ -5,7 +5,13 @@ const ContentList = (props) => {
   const { content, show, width } = props;
   return (
     <ul className={show ? 'contentListWrapper-show' : 'contentListWrapper-hide'}>
-      {content.map(e => <ContentListElement news={e} key={e.contentId} screenWidth={width} />)}
+      {content.map(e => (
+        <ContentListElement
+          news={e}
+          key={e.contentId}
+          screenWidth={screenWidth}
+        />
+      ))}
     </ul>
   );
 };
