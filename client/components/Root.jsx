@@ -137,7 +137,6 @@ class Root extends React.Component {
       return;
     }
     let newFilter;
-    if (target === 'latest') { newFilter = 'latest'; }
     if (target === 'videos') { newFilter = 'videos'; }
     if (target === 'articles') { newFilter = 'articles'; }
     if (target === 'latest') {
