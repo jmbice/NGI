@@ -26,16 +26,19 @@
 .png-latest {
   @extend %menuPNG;
   background-image: url("../../public/images/latest_passive.png");
-}
-
-.png-articles {
-  @extend %menuPNG;
-  background-image: url("../../public/images/articles_passive.png");
+  background-size: 35px 35px;
 }
 
 .png-videos {
   @extend %menuPNG;
   background-image: url("../../public/images/videos_passive.png");
+  background-size: 37.5px 37.5px;
+}
+
+.png-articles {
+  @extend %menuPNG;
+  background-image: url("../../public/images/articles_passive.png");
+  background-size: 37px 37px;
 }
 
 .menuTitles {
