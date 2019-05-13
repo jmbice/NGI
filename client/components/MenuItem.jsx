@@ -10,7 +10,7 @@ const MenuItem = (props) => {
       className={filter === itemType ? 'menu-btn-active' : 'menu-btn'}
       onClick={changeFilter}
     >
-      <div className={`png-${itemType}`} alt="latest" />
+      <div className={`png-${itemType}`} alt={`${itemType}`} />
       <div className="menuTitles">{title}</div>
     </button>
   );
