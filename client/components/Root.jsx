@@ -26,7 +26,6 @@ class Root extends React.Component {
   }
 
   componentDidMount() {
-    this.getLatest();
     this.throttleGetLatest();
     window.addEventListener('scroll', this.handleMenuScroll);
     this.setState({
