@@ -30,6 +30,7 @@ app.get('/content/:count', (req, res) => {
 });
 
 app.get('/comments/:ids', (req, res) => {
+  //  get comment counts from ids
   request(`https://ign-apis.herokuapp.com/comments?ids=${req.params.ids}`, (error, response, body) => {
     if (error) {
       res.status(response.statusCode).send();
