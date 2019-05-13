@@ -9,6 +9,8 @@ class Root extends React.Component {
     this.changeFilter = this.changeFilter.bind(this);
     this.fadeAnimation = this.fadeAnimation.bind(this);
     this.getLatest = this.getLatest.bind(this);
+    this.throttleGetLatest = throttle(this.throttleGetLatest.bind(this), 120000);
+    this.getEarlierContent = this.getEarlierContent.bind(this);
     this.handleMenuScroll = this.handleMenuScroll.bind(this);
     this.state = {
       allContent: [],
@@ -25,6 +27,7 @@ class Root extends React.Component {
 
   componentDidMount() {
     this.getLatest();
+    this.throttleGetLatest();
     window.addEventListener('scroll', this.handleMenuScroll);
     this.setState({
       screenWidth: screen.width,
@@ -120,6 +123,10 @@ class Root extends React.Component {
       });
   }
 
+  throttleGetLatest() {
+    this.getLatest();
+  }
+
   fadeAnimation() {
     setTimeout(() => {
       this.setState({ show: true });
@@ -136,6 +143,11 @@ class Root extends React.Component {
     if (target === 'latest') { newFilter = 'latest'; }
     if (target === 'videos') { newFilter = 'videos'; }
     if (target === 'articles') { newFilter = 'articles'; }
+    if (target === 'latest') {
+      newFilter = 'latest';
+      this.throttleGetLatest();
+    }
+
     this.setState({ filter: newFilter, show: false }, () => {
       this.fadeAnimation();
     });
