@@ -1,8 +1,19 @@
+
+%menuPNG {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 %menu-button {
   background-color: $liteAccent;
   width: $minimumMenuLength;
-  height: 50px;
-  font-size: 30px;
+  margin: -4px 5px 0 0;
+  padding: 5px 0;
   border: none;
   border-radius: 5px;
   color: $waistDeepGrey;
@@ -10,92 +21,124 @@
   flex-flow: row;
   align-items: center;
   align-content: center;
+}
 
+.png-latest {
+  @extend %menuPNG;
+  background-image: url("../../public/images/latest_passive.png");
+  background-size: 35px 35px;
+}
 
-  .menuPNG {
-    display: block;
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-    margin: 0 0 0 30px;
-  }
+.png-videos {
+  @extend %menuPNG;
+  background-image: url("../../public/images/videos_passive.png");
+  background-size: 37.5px 37.5px;
+}
 
-  .menuText {
-    visibility: hidden;
-    pointer-events: none;
-  }
+.png-articles {
+  @extend %menuPNG;
+  background-image: url("../../public/images/articles_passive.png");
+  background-size: 37px 37px;
+}
 
-  @include sm {
-    width: 100%;
-    height: 50px;
-    font-size: 10px;
-
-    .menuPNG{
-      float: left;
-      width: 20px;
-      height: 20px;
-    }
-    .menuText {
-      float: left;
-      margin: 0 0 0 10px;
-      visibility:visible;
-    }
-  }
-
-  @include md {
-    height: 50px;
-    font-size: 15px;
-    .menuText {
-      margin: 0 0 0 20px;
-    }
-  }
-
-  @include lg {
-    height: 57.32px;
-    font-size: 20px;
-    .menuPNG{
-      width: 30px;
-      height: 30px;
-    }
-
-    .menuText {
-      margin: 0 0 0 30px;
-    }
-  }
-
-  @include xl {
-    height: 82px;
-    font-size: 30px;
-    .menuPNG{
-      width: 40px;
-      height: 40px;
-    }
-
-    .menuText {
-      margin: 0 0 0 40px;
-    }
-  }
+.menuTitles {
+  visibility: hidden;
+  pointer-events: none;
+  width:0;
+  font-size: 15px;
 }
 
 .menu-btn {
   @extend %menu-button;
   &:focus{
     outline: none;
-    // this is because its what the mock up has, personally, I think there should
-    // be ARIA consideration here...
   }
+
   &:hover{
     background-color: $shallowGrey;
     color: $deepGrey;
+    .png-latest {
+      background-image: url("../../public/images/latest_active.png");
+    }
+
+    .png-articles {
+      background-image: url("../../public/images/articles_active.png");
+    }
+
+    .png-videos {
+      background-image: url("../../public/images/videos_active.png");
+    }
   }
+
   &-active {
     @extend %menu-button;
     background: $ignRed;
     color: $liteAccent;
     &:focus{
       outline:none;
-      // this is because its what the mock up has, personally, I think there should
-      // be ARIA consideration here...
     }
+    .png-latest {
+      background-image: url("../../public/images/latest_selected.png");
+    }
+    .png-articles {
+      background-image: url("../../public/images/articles_selected.png");
+    }
+    .png-videos {
+      background-image: url("../../public/images/videos_selected.png");
+    }
+  }
+}
+
+@include sm {
+  %menu-button {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+  }
+  .menuPNG{
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 35px;
+
+  }
+  .menuTitles {
+    margin: 0 90px 0 0;
+    visibility: visible;
+  }
+
+}
+
+@include md {
+  %menu-button { height: 50px; }
+  .menuTitles {
+    margin: 0 100px 0 0;
+    font-size: 20px;
+  }
+}
+
+@include lg {
+  %menu-button { height: 57.32px; }
+  .menuPNG{
+    width: 30px;
+    height: 30px;
+  }
+
+  .menuTitles {
+    margin: 0 150px 0 0;
+  }
+}
+
+@include xl {
+  %menu-button { height: 82px; }
+  .menuPNG{
+    width: 40px;
+    height: 40px;
+  }
+
+  .menuTitles {
+    margin: 0 190px 0 0;
+    font-size: 30px;
   }
 }

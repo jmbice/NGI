@@ -1,39 +1,41 @@
 .rootWrapper {
-  margin: 0 auto;
-  width: 320px;
-  @include sm {
-    width: 576px;
-    h1 {
-      font-size: 20px;
-    }
-  }
+  width: 100%;
+}
 
-  @include md {
-    width: 992px;
-    h1 {
-      font-size: 40px;
-    }
-  }
-
-  @include lg {
-    width: 1280px;
-    h1 {
-      font-size: 50px;
-    }
-  }
-
-  @include xl {
-    width: 1800px;
-    h1 {
-      font-size: 60px;
-    }
-  }
+%dryHeader {
+  width: 98%;
+  height: 50px;
+  margin: -13px 0 0 -5px;
+  border-bottom: 1px solid $skyGrey;
+  padding: 0 0 $titlePadding 0;
+  background-color: white;
+  position: fixed;
+  display: flex;
+  flex-flow: row;
+  z-index: 2;
+  //from _Menu.scss
+  @extend %transition;
 }
 
 .rootHeader {
-  width: 100%;
-  border-bottom: 1px solid $skyGrey;
-  padding: 0 0 $titlePadding 0;
+  @extend %dryHeader;
+}
+
+.rootHeader-hidden {
+  @extend %dryHeader;
+  opacity: 0;
+  margin: -213px 0 0 -5px;
+}
+
+.header-title {
+  width: 100px;
+  height: 100%;
+  text-align: center;
+  margin: 5px 0 0 10px;
+  font-family: $theme-font;
+  color: $ignRed;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .rootBody {
@@ -42,13 +44,99 @@
   flex-flow: row;
 }
 
-.rootContent {
-  width: 75%;
-  @include sm {
-    width: 50%;
+.body-left {
+  z-index: 2;
+  width: 2.5%;
+}
+
+.body-content {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
+  z-index: 1;
+}
+
+@include sm {
+  .header-title {
+    width: 90%;
+    padding: 10px 5px;
+    margin: 0 0 0 5px;
+  }
+  .body-content {
+    width: 75%;
+    margin: 0;
+  }
+  .body-left {
+    width: 25%;
+    margin: 40px 0 0 0;
+  }
+  .rootWrapper {
+    margin: 0 auto;
+    width: 576px;
+    h1 {
+      font-size: 20px;
+    }
+  }
+  %dryHeader {
+    width: 120px;
+    height: auto;
+    margin: 0 0 0 -3px;
+    border-bottom: 0;
+    padding: 0 0 $titlePadding 0;
+    background-color: inherit;
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+    z-index: 2;
+  }
+  .rootHeader-hidden {
+    opacity: 1;
   }
 }
 
-.rootMenu {
-  width: 25%;
+@include md {
+  .header-title {
+    width: 85%;
+    font-size: 30px;
+    margin: 12px 0 0 10%;
+  }
+  .body-content { width: 50% }
+  .body-left { margin: 55px 0 0 0; }
+  .rootWrapper {
+    width: 992px;
+    h1 {
+      font-size: 40px;
+    }
+  }
+  %dryHeader {
+    width: 250px;
+    margin-left: -10px;
+  }
+}
+
+@include lg {
+  .header-title {
+    font-size: 40px;
+    margin-top: 15px;
+  }
+  .rootWrapper {
+    width: 1280px;
+    h1 {
+      font-size: 50px;
+    }
+  }
+  %dryHeader { width: 320px; }
+}
+
+@include xl {
+  .header-title {
+    margin-top: 16px;
+  }
+  .rootWrapper {
+    width: 1800px;
+    h1 {
+      font-size: 60px;
+    }
+  }
+  %dryHeader { width: 420px; }
 }

@@ -15,18 +15,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// build middleware here
-// app.use((req, res, next) => {
-//   console.log(req.method, req.body);
-//   next();
-// });
-
-// build API calls here
-app.get('/content', (req, res) => {
-  // gets all content  (20 max)
-  request('https://ign-apis.herokuapp.com/content?count=20', (error, response, body) => {
+app.get('/content/:count', (req, res) => {
+  // gets content based on count (count min = 1, max = 20)
+  request(`https://ign-apis.herokuapp.com/content?count=${req.params.count}`, (error, response, body) => {
     if (error) {
-      res.status(response.statusCode).send();
+      if (response) {
+        res.status(response.statusCode).send();
+      } else { console.log('error getting content'); }
     } else {
       res.status(response.statusCode).send(body);
     }
@@ -34,6 +29,7 @@ app.get('/content', (req, res) => {
 });
 
 app.get('/comments/:ids', (req, res) => {
+  //  get comment counts from ids
   request(`https://ign-apis.herokuapp.com/comments?ids=${req.params.ids}`, (error, response, body) => {
     if (error) {
       res.status(response.statusCode).send();
@@ -43,6 +39,18 @@ app.get('/comments/:ids', (req, res) => {
   });
 });
 
+app.get('/content/:startIndex/:count', (req, res) => {
+  // get content from startIndex based on count (count min = 1, max = 20)
+  request(`https://ign-apis.herokuapp.com/content?startIndex=${req.params.startIndex}&count=${req.params.count}`, (error, response, body) => {
+    if (error) {
+      if (response) {
+        res.status(response.statusCode).send();
+      } else { console.log('error getting earlier content'); }
+    } else {
+      res.status(response.statusCode).send(body);
+    }
+  });
+});
 
 // listening...
-app.listen(port, () => console.log(`IGN-webApp-FE listening on port ${port}!`));
+app.listen(port, () => console.log(`NGI-webApp-FE listening on port ${port}!`));

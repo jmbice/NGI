@@ -1,4 +1,4 @@
-.listElementWrapper {
+%listElementWrapperReusable {
   @include calc(width, #{"100% -  #{$sidePadding * 2}"});
   margin: 0 $sidePadding;
   height: auto;
@@ -8,37 +8,43 @@
   flex-flow: row wrap;
 }
 
+.listElementWrapper {
+  @extend %listElementWrapperReusable;
+}
+
+.listElementPlaceHolderWrapper {
+  @extend %listElementWrapperReusable;
+  margin: -20px 0 20px 0;
+}
+
 .listElementWrapper > * {
   flex: 1 100%;
 }
 
-@include md {
-  .listElementWrapper { padding: $verticalPadLarge 0; }
-  .newsImage { flex: 1 auto; }
-  .listElementText { flex: 1 auto; }
-  .listElementMedia { flex: 1 auto; }
+.listElementPlaceHolderWrapper > * {
+  flex: 1 100%;
 }
 
 .listElementText {
-  @include calc(width, #{"50% -  #{$sidePadding}"});
-  padding: 0 0 0 $sidePadding;
+  @include calc(width, #{"50% - 2 * #{$sidePadding}"});
+  padding: 0 $sidePadding;
   float: right;
   height: auto;
   font-family: $theme-font;
-  font-size: 20px;
+  font-size: 18px;
   color: $nightGrey;
   font-weight: $comment-font-weight;
 }
 
 .listElementMedia {
-  @include calc(width, #{"50% -  #{$sidePadding}"});
+  @include calc(width, #{"50% - #{$sidePadding}"});
   padding: 0 $sidePadding 0 0;
   font-family: $theme-font;
   color: $liteAccent;
 }
 
 .newsImage {
-  float: left;
+  display: block;
   width: 100%;
   height: auto;
   &:hover {
@@ -70,4 +76,51 @@
 
 .spaceBetweenDateAndComments {
   margin: 0 10px
+}
+
+.listElement-image-placeHolder {
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.listElement-text-placeHolder {
+  display: block;
+  width: 400px;
+  height: 200px;
+  margin: 0 auto 0 auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("../../public/images/text_place_holder.png");
+}
+
+@include sm {
+  .listElementWrapper{ width: 100%; }
+  .listElementPlaceHolderWrapper { width: 100%; }
+}
+
+@include md {
+  .listElementWrapper { padding: $verticalPadLarge 0; }
+  .listElementPlaceHolderWrapper { padding: $verticalPadLarge 0; }
+  .newsImage { flex: 1 auto; }
+  .listElementText { flex: 1 auto; }
+  .listElementMedia { flex: 1 auto; }
+  .listElement-image-placeHolder {
+    display: block;
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../public/images/place_holder.png");
+  }
+  .listElement-text-placeHolder {
+    display: block;
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../../public/images/text_place_holder.png");
+  }
 }

@@ -1,12 +1,67 @@
-.menuWrapper {
+%dryMenu {
   width:100%;
-  @include calc(width, #{"100% -  #{$sidePadding}"});
-  margin: 0 $sidePadding 0 0;
+  margin: -2px 0 0 120px;
   display: flex;
-  flex-flow: column;
-  padding: $verticalPadSmall 0 0 0;
-  
-  @include md {
+  flex-flow: row;
+  position: fixed;
+}
+
+%transition {
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+
+.menuWrapper {
+  @extend %dryMenu;
+  @extend %transition;
+}
+
+.menuWrapper-hidden {
+  @extend %transition;
+  @extend %dryMenu;
+  opacity: 0;
+  margin: -200px 0 0 120px;
+}
+
+@include sm {
+  %transition {
+    -webkit-transition: 0s;
+    -moz-transition: 0s;
+    -o-transition: 0s;
+    transition: 0s;
+  }
+  %dryMenu {
+    width: 140px;
+    margin: $verticalPadLarge $sidePadding 0 0;
+    flex-flow: column;
+    padding: $verticalPadSmall 0 0 0;
+    opacity: 1;
+  }
+  .menuWrapper-hidden {
+    margin: $verticalPadLarge $sidePadding 0 0;
+    opacity: 1;
+  }
+}
+
+@include md {
+  %dryMenu {
+    width: 240px;
+    margin: 0;
     padding: $verticalPadLarge 0 0 0;
+  }
+}
+
+@include lg {
+  %dryMenu {
+    margin: $verticalPadLarge $sidePadding 0 0;
+    width: 310px;
+  }
+}
+
+@include xl {
+  %dryMenu {
+    width: 435px;
   }
 }
