@@ -1,6 +1,7 @@
 import React from 'react';
 import ContentList from './ContentList';
 import Menu from './Menu';
+import ContentLoaded from './ContentLoaded';
 
 class Root extends React.Component {
   constructor(props) {
