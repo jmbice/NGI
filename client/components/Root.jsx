@@ -36,31 +36,36 @@ class Root extends React.Component {
   }
 
   getLatest() {
-    const { allContent } = this.state;
+    const { allContent, videos, articles } = this.state;
     const count = 20; // number of articles to load, API limits 1-20
     fetch(`/content/${count}`)
       .then(res => res.json())
       .then((d) => {
-        const videos = [];
-        const articles = [];
+        const newVideos = [];
+        const newArticles = [];
+        const newAllContent = [];
         const ids = [];
-        d.data.map((e) => {
-          e.commentsCount = 0;
-          if (e.contentType === 'article') { articles.push(e); }
-          if (e.contentType === 'video') { videos.push(e); }
-          ids.push(e.contentId);
-          return e;
-        });
+        for (let j = 0; j < d.data.length; j += 1) {
+          if (allContent.length > 0 && d.data[j].contentIds === allContent[0].contentIds) {
+            break;
+          } else {
+            if (d.data[j].contentType === 'article') { newArticles.push(d.data[j]); }
+            if (d.data[j].contentType === 'video') { newVideos.push(d.data[j]); }
+            newAllContent.push(d.data[j]);
+            ids.push(d.data[j].contentId);
+          }
+        }
 
-        if (allContent.length > 0 && ids[0] === allContent[0].contentId) { return; }
+        if (ids.length === 0) { return; }
 
         this.setState({
-          videos,
-          articles,
-          allContent: d.data,
+          videos: [...newVideos, ...videos],
+          articles: [...newArticles, ...articles],
+          allContent: [...newAllContent, ...allContent],
+          showPlaceHolderData: true,
         }, () => {
           this.fadeAnimation();
-          this.getComments(ids);
+          this.getComments(ids, 0);
         });
       });
   }
