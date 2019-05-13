@@ -35,6 +35,8 @@ class Root extends React.Component {
 
   getLatest() {
     const { allContent } = this.state;
+    const count = 20; // number of articles to load, API limits 1-20
+    fetch(`/content/${count}`)
       .then(res => res.json())
       .then((d) => {
         const videos = [];
