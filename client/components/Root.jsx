@@ -94,22 +94,24 @@ class Root extends React.Component {
       });
   }
 
-  getComments(ids) {
+  getComments(ids, startIndex) {
     const { allContent } = this.state;
     const newContent = [...allContent];
-    const videos = [];
-    const articles = [];
 
     fetch(`/comments/${ids}`)
       .then(res => res.json())
       .then((d) => {
-        d.content.map((e, i) => {
-          if (newContent[i].contentId === e.id) {
-            newContent[i].commentsCount = e.count;
-            if (newContent[i].contentType === 'article') { articles.push(newContent[i]); }
-            if (newContent[i].contentType === 'video') { videos.push(newContent[i]); }
+        d.content.forEach((e, i) => {
+          if (newContent[i + startIndex].contentId === e.id) {
+            newContent[i + startIndex].commentsCount = e.count;
           }
-          return e;
+        });
+
+        const videos = [];
+        const articles = [];
+        newContent.forEach((e) => {
+          if (e.contentType === 'article') { articles.push(e); }
+          if (e.contentType === 'video') { videos.push(e); }
         });
 
         this.setState({
