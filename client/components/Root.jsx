@@ -18,6 +18,7 @@ class Root extends React.Component {
       prevScrollPosition: window.pageYOffset,
       menuVisible: true,
       screenWidth: 0,
+      showLoadingAnimation: false,
     };
   }
 
