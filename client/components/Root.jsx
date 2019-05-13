@@ -193,13 +193,18 @@ class Root extends React.Component {
             />
           </div>
           <div className="body-content">
-            <ContentLoaded
-              content={content}
-              show={show}
-              screenWidth={screenWidth}
-              showLoadingAnimation={showLoadingAnimation}
-              getEarlierContent={this.getEarlierContent}
-            />
+            {showPlaceHolderData
+              ? (
+                <ContentLoaded
+                  content={content}
+                  show={show}
+                  screenWidth={screenWidth}
+                  showLoadingAnimation={showLoadingAnimation}
+                  getEarlierContent={this.getEarlierContent}
+                />
+              )
+              : <PlaceHolderContent />
+           }
           </div>
         </div>
       </div>
