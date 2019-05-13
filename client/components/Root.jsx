@@ -63,6 +63,35 @@ class Root extends React.Component {
       });
   }
 
+  getEarlierContent() {
+    this.setState({ showLoadingAnimation: true });
+    const { allContent, videos, articles } = this.state;
+    const startIndex = allContent.length;
+    const count = 20;
+    fetch(`/content/${startIndex}/${count}`)
+      .then(res => res.json())
+      .then((d) => {
+        const newVideos = [];
+        const newArticles = [];
+        const ids = [];
+
+        d.data.forEach((e) => {
+          if (e.contentType === 'article') { newArticles.push(e); }
+          if (e.contentType === 'video') { newVideos.push(e); }
+          ids.push(e.contentId);
+        });
+
+        this.setState({
+          videos: [...videos, ...newVideos],
+          articles: [...articles, ...newArticles],
+          allContent: [...allContent, ...d.data],
+          showLoadingAnimation: false,
+        }, () => {
+          this.getComments(ids, startIndex);
+        });
+      });
+  }
+
   getComments(ids) {
     const { allContent } = this.state;
     const newContent = [...allContent];
