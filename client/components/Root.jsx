@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './Menu';
 import ContentLoaded from './ContentLoaded';
+import PlaceHolderContent from './PlaceHolderContent';
 import throttle from '../../modularize/throttle'; // import throttle/debounce from lodash
 
 class Root extends React.Component {
@@ -21,6 +22,7 @@ class Root extends React.Component {
       prevScrollPosition: window.pageYOffset,
       menuVisible: true,
       screenWidth: 0,
+      showPlaceHolderData: false,
       showLoadingAnimation: false,
     };
   }
@@ -170,6 +172,7 @@ class Root extends React.Component {
   render() {
     const {
       allContent, videos, articles, filter, show, menuVisible, screenWidth,
+      showPlaceHolderData, showLoadingAnimation,
     } = this.state;
 
     let content;
