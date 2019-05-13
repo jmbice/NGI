@@ -164,8 +164,8 @@ class Root extends React.Component {
     const {
       allContent, videos, articles, filter, show, menuVisible, screenWidth,
     } = this.state;
-    let content;
 
+    let content;
     if (filter === 'latest') { content = allContent; }
     if (filter === 'videos') { content = videos; }
     if (filter === 'articles') { content = articles; }
