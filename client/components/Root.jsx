@@ -177,10 +177,12 @@ class Root extends React.Component {
             />
           </div>
           <div className="body-content">
-            <ContentList
+            <ContentLoaded
               content={content}
               show={show}
-              width={screenWidth}
+              screenWidth={screenWidth}
+              showLoadingAnimation={showLoadingAnimation}
+              getEarlierContent={this.getEarlierContent}
             />
           </div>
         </div>
