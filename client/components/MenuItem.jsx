@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MenuItem = (props) => {
-  const { itemType, title, changeFilter, filter, passive, active, selected } = props;
+  const { itemType, title, changeFilter, filter } = props;
 
   return (
     <button
