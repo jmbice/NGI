@@ -35,7 +35,6 @@ class Root extends React.Component {
 
   getLatest() {
     const { allContent } = this.state;
-    fetch('/content')
       .then(res => res.json())
       .then((d) => {
         const videos = [];
