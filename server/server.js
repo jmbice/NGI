@@ -15,7 +15,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.get('/content/:count', (req, res) => {
   // gets content based on count (count min = 1, max = 20)
   request(`https://ign-apis.herokuapp.com/content?count=${req.params.count}`, (error, response, body) => {
@@ -42,4 +41,4 @@ app.get('/comments/:ids', (req, res) => {
 
 
 // listening...
-app.listen(port, () => console.log(`IGN-webApp-FE listening on port ${port}!`));
+app.listen(port, () => console.log(`NGI-webApp-FE listening on port ${port}!`));
