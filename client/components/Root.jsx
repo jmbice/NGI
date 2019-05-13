@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './Menu';
 import ContentLoaded from './ContentLoaded';
+import throttle from '../../modularize/throttle'; // import throttle/debounce from lodash
 
 class Root extends React.Component {
   constructor(props) {
