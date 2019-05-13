@@ -43,12 +43,14 @@ const ContentListElement = (props) => {
   };
 
   const loadBestImage = () => {
-    if (screenWidth && screenWidth < 1800) { return news.thumbnails[0].url; }
-
     const width = window.innerWidth;
-    if (width < 1800) { return news.thumbnails[0].url; }
-    if ((width >= 1800 && width < 2500) || screenWidth < 2500) { return news.thumbnails[1].url; }
-    return news.thumbnails[2].url;
+    let sizeId = 1;
+    if (width > 0 && width < 400) { sizeId = 0; }
+    if (width >= 400 && width < 992) { sizeId = 1; }
+    if (width >= 992 && width < 1280) { sizeId = 0; }
+    if (width >= 1280 && width < 1800) { sizeId = 1; }
+    if (width >= 2500 && screenWidth >= width) { sizeId = 2; }
+    return news.thumbnails[sizeId].url;
   };
 
   return (
