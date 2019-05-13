@@ -28,9 +28,7 @@ class Root extends React.Component {
   componentDidMount() {
     this.throttleGetLatest();
     window.addEventListener('scroll', this.handleMenuScroll);
-    this.setState({
-      screenWidth: screen.width,
-    });
+    this.setState({ screenWidth: screen.width });
   }
 
   componentWillUnmount() {
