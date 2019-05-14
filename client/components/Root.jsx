@@ -104,19 +104,19 @@ class Root extends React.Component {
   getComments(ids, startIndex) {
     const { allContent } = this.state;
     const newContent = [...allContent];
+    const countsRef = {};
 
     fetch(`/comments/${ids}`)
       .then(res => res.json())
       .then((d) => {
-        d.content.forEach((e, i) => {
-          if (newContent[i + startIndex].contentId === e.id) {
-            newContent[i + startIndex].commentsCount = e.count;
-          }
+        d.content.forEach((e) => {
+          countsRef[e.id] = e.count;
         });
 
         const videos = [];
         const articles = [];
         newContent.forEach((e) => {
+          if (countsRef[e.contentId]) { e.commentsCount = countsRef[e.contentId]; }
           if (e.contentType === 'article') { articles.push(e); }
           if (e.contentType === 'video') { videos.push(e); }
         });
