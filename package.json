@@ -1,6 +1,9 @@
 {
   "name": "ign-fe",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.15.3"
+  },
   "description": "This repository represents the front-end project for IGN's Code Foo. Information about IGN's Code Foo, including the expectations for the project can be found here: https://www.ign.com/code-foo/2019",
   "main": "server.js",
   "scripts": {
