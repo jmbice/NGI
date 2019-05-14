@@ -67,7 +67,7 @@ class Root extends React.Component {
           showPlaceHolderData: true,
         }, () => {
           this.fadeAnimation();
-          this.getComments(ids, 0);
+          this.getComments(ids);
         });
       });
   }
@@ -96,12 +96,12 @@ class Root extends React.Component {
           allContent: [...allContent, ...d.data],
           showLoadingAnimation: false,
         }, () => {
-          this.getComments(ids, startIndex);
+          this.getComments(ids);
         });
       });
   }
 
-  getComments(ids, startIndex) {
+  getComments(ids) {
     const { allContent } = this.state;
     const newContent = [...allContent];
     const countsRef = {};
