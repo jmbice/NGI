@@ -1,5 +1,5 @@
 
-%menuPNG {
+%menu-png {
   display: block;
   width: 35px;
   height: 35px;
@@ -24,24 +24,24 @@
 }
 
 .png-latest {
-  @extend %menuPNG;
+  @extend %menu-png;
   background-image: url("../../public/images/latest_passive.png");
   background-size: 35px 35px;
 }
 
 .png-videos {
-  @extend %menuPNG;
+  @extend %menu-png;
   background-image: url("../../public/images/videos_passive.png");
   background-size: 37.5px 37.5px;
 }
 
 .png-articles {
-  @extend %menuPNG;
+  @extend %menu-png;
   background-image: url("../../public/images/articles_passive.png");
   background-size: 37px 37px;
 }
 
-.menuTitles {
+.menu-titles {
   visibility: hidden;
   pointer-events: none;
   width:0;
@@ -96,15 +96,9 @@
     width: 100%;
     height: 50px;
   }
-  .menuPNG{
-    float: left;
-    width: 20px;
-    height: 20px;
-    margin: 0 0 0 35px;
-
-  }
-  .menuTitles {
-    margin: 0 90px 0 0;
+  %menu-png{ margin: 0 20px; }
+  .menu-titles {
+    margin: 0;
     visibility: visible;
   }
 
@@ -112,33 +106,17 @@
 
 @include md {
   %menu-button { height: 50px; }
-  .menuTitles {
-    margin: 0 100px 0 0;
-    font-size: 20px;
-  }
+  .menu-titles { font-size: 20px; }
+  %menu-png{ margin: 0 20px 0 60px; }
 }
 
 @include lg {
   %menu-button { height: 57.32px; }
-  .menuPNG{
-    width: 30px;
-    height: 30px;
-  }
-
-  .menuTitles {
-    margin: 0 150px 0 0;
-  }
+  %menu-png{ margin: 0 20px 0 95px; }
 }
 
 @include xl {
   %menu-button { height: 82px; }
-  .menuPNG{
-    width: 40px;
-    height: 40px;
-  }
-
-  .menuTitles {
-    margin: 0 190px 0 0;
-    font-size: 30px;
-  }
+  %menu-png{ margin: 0 20px 0 145px; }
+  .menu-titles { font-size: 30px; }
 }
