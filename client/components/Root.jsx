@@ -189,11 +189,13 @@ class Root extends React.Component {
         </div>
         <div className="rootBody">
           <div className="body-left">
-            <Menu
-              menuVisible={menuVisible}
-              filter={filter}
-              changeFilter={this.changeFilter}
-            />
+            <div className="nav">
+              <Menu
+                menuVisible={menuVisible}
+                filter={filter}
+                changeFilter={this.changeFilter}
+              />
+            </div>
           </div>
           <div className="body-content">
             {showPlaceHolderData
