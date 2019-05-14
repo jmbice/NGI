@@ -11,7 +11,7 @@ const MenuItem = (props) => {
       onClick={changeFilter}
     >
       <div className={`png-${itemType}`} alt={`${itemType}`} />
-      <div className="menuTitles">{title}</div>
+      <div className="menu-titles">{title}</div>
     </button>
   );
 };
