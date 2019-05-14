@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const request = require('request');
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 // paths, parseJSON = true, pars URL encoded = true, allow x-origin requests
