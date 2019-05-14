@@ -8,7 +8,7 @@ const Menu = (props) => {
   return (
     <Router>
       <div className={menuVisible ? 'menuWrapper' : 'menuWrapper-hidden'}>
-        <Link to="/">
+        <Link to="/" className="menu-link-wrapper">
           <MenuItem
             filter={filter}
             changeFilter={changeFilter}
@@ -16,7 +16,7 @@ const Menu = (props) => {
             title="Latest"
           />
         </Link>
-        <Link to="/videos/">
+        <Link to="/videos/" className="menu-link-wrapper">
           <MenuItem
             filter={filter}
             changeFilter={changeFilter}
@@ -24,7 +24,7 @@ const Menu = (props) => {
             title="Videos"
           />
         </Link>
-        <Link to="/articles/">
+        <Link to="/articles/" className="menu-link-wrapper">
           <MenuItem
             filter={filter}
             changeFilter={changeFilter}
