@@ -67,7 +67,7 @@ class Root extends React.Component {
           showPlaceHolderData: true,
         }, () => {
           this.fadeAnimation();
-          this.getComments(ids, 0);
+          this.getComments(ids);
         });
       });
   }
@@ -96,27 +96,27 @@ class Root extends React.Component {
           allContent: [...allContent, ...d.data],
           showLoadingAnimation: false,
         }, () => {
-          this.getComments(ids, startIndex);
+          this.getComments(ids);
         });
       });
   }
 
-  getComments(ids, startIndex) {
+  getComments(ids) {
     const { allContent } = this.state;
     const newContent = [...allContent];
+    const countsRef = {};
 
     fetch(`/comments/${ids}`)
       .then(res => res.json())
       .then((d) => {
-        d.content.forEach((e, i) => {
-          if (newContent[i + startIndex].contentId === e.id) {
-            newContent[i + startIndex].commentsCount = e.count;
-          }
+        d.content.forEach((e) => {
+          countsRef[e.id] = e.count;
         });
 
         const videos = [];
         const articles = [];
         newContent.forEach((e) => {
+          if (countsRef[e.contentId]) { e.commentsCount = countsRef[e.contentId]; }
           if (e.contentType === 'article') { articles.push(e); }
           if (e.contentType === 'video') { videos.push(e); }
         });
@@ -189,11 +189,13 @@ class Root extends React.Component {
         </div>
         <div className="rootBody">
           <div className="body-left">
-            <Menu
-              menuVisible={menuVisible}
-              filter={filter}
-              changeFilter={this.changeFilter}
-            />
+            <div className="nav">
+              <Menu
+                menuVisible={menuVisible}
+                filter={filter}
+                changeFilter={this.changeFilter}
+              />
+            </div>
           </div>
           <div className="body-content">
             {showPlaceHolderData

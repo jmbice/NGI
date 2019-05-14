@@ -52,5 +52,9 @@ app.get('/content/:startIndex/:count', (req, res) => {
   });
 });
 
+app.get('/*', (req, res) => {
+  res.redirect(`http://localhost:${port}/`);
+});
+
 // listening...
 app.listen(port, () => console.log(`NGI-webApp-FE listening on port ${port}!`));
