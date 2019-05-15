@@ -4,7 +4,7 @@
 
 %dryHeader {
   width: 98%;
-  height: 50px;
+  height: 84px;
   margin: -13px 0 0 -5px;
   border-bottom: 1px solid $skyGrey;
   padding: 0 0 $titlePadding 0;
@@ -34,7 +34,7 @@
   margin: 5px 0 0 10px;
   font-family: $theme-font;
   color: $ignRed;
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 600;
 }
 
@@ -61,6 +61,8 @@
     width: 100%;
     padding: 0 5px 10px 5px;
     margin: 20px 0 0 5px;
+    font-size: 50px;
+
   }
   .body-content {
     width: 75%;
