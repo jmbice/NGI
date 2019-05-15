@@ -3,6 +3,7 @@ const path = require('path');
 const request = require('request');
 
 const port = process.env.PORT || 3000;
+const redirect = process.env.PORT ? 'http://ngi-bice.herokuapp.com/' : 'http://localhost:3000';
 const app = express();
 
 // paths, parseJSON = true, pars URL encoded = true, allow x-origin requests
@@ -53,8 +54,7 @@ app.get('/content/:startIndex/:count', (req, res) => {
 });
 
 app.get('/*', (req, res) => {
-  // res.redirect('http://ngi-bice.herokuapp.com/');
-  res.redirect('http://localhost:3000');
+  res.redirect(redirect);
 });
 
 // listening...
