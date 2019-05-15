@@ -53,7 +53,8 @@ app.get('/content/:startIndex/:count', (req, res) => {
 });
 
 app.get('/*', (req, res) => {
-  res.redirect('http://ngi-bice.herokuapp.com/');
+  // res.redirect('http://ngi-bice.herokuapp.com/');
+  res.redirect('http://localhost:3000');
 });
 
 // listening...
