@@ -32,7 +32,7 @@ a:link, a:hover, a:visited, a:active { text-decoration: none; }
 .menu-titles {
   visibility: hidden;
   pointer-events: none;
-  width:0;
+  width: 0;
   font-size: 15px;
 }
 
@@ -97,6 +97,17 @@ a:link, a:hover, a:visited, a:active { text-decoration: none; }
 
 @include sm {
   %menu-button {
+    width: 100px;
+  }
+  .menu-link-wrapper {
+    width: 20%;
+    margin: 0 5%;
+  }
+}
+
+
+@include md {
+  %menu-button {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -104,7 +115,7 @@ a:link, a:hover, a:visited, a:active { text-decoration: none; }
   }
   %menu-png{
     height: 35px;
-    margin: 0 20px;
+    margin: 0 20px 0 60px;
   }
   .menu-titles {
     margin: 0;
@@ -112,14 +123,8 @@ a:link, a:hover, a:visited, a:active { text-decoration: none; }
   }
   .menu-link-wrapper {
     width: 100%;
+    margin: 0 2.5%
   }
-
-}
-
-@include md {
-  %menu-button { height: 50px; }
-  .menu-titles { font-size: 20px; }
-  %menu-png{ margin: 0 20px 0 60px; }
 }
 
 @include lg {
