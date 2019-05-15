@@ -3,7 +3,7 @@ const path = require('path');
 const request = require('request');
 
 const port = process.env.PORT || 3000;
-const redirect = process.env.PORT ? 'http://ngi-bice.herokuapp.com/' : 'http://localhost:3000';
+const redirect = process.env.PORT ? 'http://jordanbice-news.herokuapp.com/' : 'http://localhost:3000';
 const app = express();
 
 // paths, parseJSON = true, pars URL encoded = true, allow x-origin requests
