@@ -1,7 +1,7 @@
 .playWrapper {
-  width: 200px;
+  width: 160px;
   position: absolute;
-  margin: -92px 0 0 5px;
+  margin: -75px 0 0 5px;
 }
 
 .playPNG {
@@ -9,7 +9,7 @@
 }
 
 .playTimeDiv {
-  margin: -56px 0 0 80px;
+  margin: -50px 0 0 65px;
   font-size: 25px;
 }
 
@@ -17,6 +17,7 @@
 @include md {
   .playWrapper {
     width: 80px;
+    margin: -40px 0 0 5px;
   }
   .playTimeDiv {
     margin: -25.5px 0 0 28px;
