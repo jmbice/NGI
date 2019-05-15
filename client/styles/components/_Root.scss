@@ -57,34 +57,47 @@
 }
 
 @include sm {
+  %dryHeader{
+    margin-left: 5px;
+  }
   .header-title {
-    width: 100%;
-    padding: 0 5px 10px 5px;
-    margin: 20px 0 0 5px;
-    font-size: 50px;
+    width: 200px;
+    margin: 26px 0 0 70px;
+  }
+}
 
+@include md {
+  .header-title {
+    width: 85%;
+    font-size: 30px;
+    padding: 0 5px 10px 5px;
+    margin: 12px 0 0 10%;
   }
   .body-content {
-    width: 75%;
+    width: 50%;
     margin: 0;
   }
   .body-left {
     width: 25%;
-    margin: 40px 0 0 0;
+    margin: 55px 0 0 0;
   }
   .rootWrapper {
     margin: 0 auto;
-    width: 576px;
+    width: 992px;
     h1 {
-      font-size: 20px;
+      font-size: 40px;
     }
   }
+  .rootHeader-hidden {
+    opacity: 1;
+  }
+
   %dryHeader {
-    width: 120px;
+    width: 250px;
     height: auto;
-    margin: 0 0 0 -3px;
-    border-bottom: 0;
+    margin: 0 0 0 -10px;
     padding: 0 0 $titlePadding 0;
+    border-bottom: 0;
     background-color: inherit;
     position: fixed;
     display: flex;
