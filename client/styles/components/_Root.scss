@@ -91,29 +91,6 @@
     flex-flow: column;
     z-index: 2;
   }
-  .rootHeader-hidden {
-    opacity: 1;
-  }
-}
-
-@include md {
-  .header-title {
-    width: 85%;
-    font-size: 30px;
-    margin: 12px 0 0 10%;
-  }
-  .body-content { width: 50% }
-  .body-left { margin: 55px 0 0 0; }
-  .rootWrapper {
-    width: 992px;
-    h1 {
-      font-size: 40px;
-    }
-  }
-  %dryHeader {
-    width: 250px;
-    margin-left: -10px;
-  }
 }
 
 @include lg {
