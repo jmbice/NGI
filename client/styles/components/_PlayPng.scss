@@ -14,16 +14,6 @@
 }
 
 
-@include sm {
-  .playWrapper{
-    width: 80px;
-  }
-  .playTimeDiv {
-    margin: -25px 0 0 28px;
-    font-size: 12px;
-  }
-}
-
 @include md {
   .playWrapper {
     width: 80px;
