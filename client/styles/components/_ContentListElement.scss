@@ -1,6 +1,6 @@
 %listElementWrapperReusable {
   @include calc(width, #{"100% -  #{$sidePadding * 2}"});
-  margin: 0 $sidePadding;
+  margin: 0 $sidePadding 0 3.25px;
   height: auto;
   border-bottom: 1px solid $skyGrey;
   padding: $verticalPadSmall 0;
@@ -31,7 +31,7 @@
   float: right;
   height: auto;
   font-family: $theme-font;
-  font-size: 18px;
+  font-size: 30px;
   color: $nightGrey;
   font-weight: $comment-font-weight;
 }
@@ -61,9 +61,9 @@
 }
 
 .listElementCommentPNG {
-  width: 35px;
-  height: 25px;
-  margin: -2.8px -5px 0 -5px;
+  width: 55px;
+  height: 40px;
+  margin: -5px -5px 0 -5px;
 }
 
 .listElementTitle {
@@ -88,7 +88,7 @@
   display: block;
   width: 400px;
   height: 200px;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   background-size: 100%;
   background-repeat: no-repeat;
   background-image: url("../../public/images/text_place_holder.png");
@@ -104,6 +104,16 @@
   .listElementPlaceHolderWrapper { padding: $verticalPadLarge 0; }
   .newsImage { flex: 1 auto; }
   .listElementText { flex: 1 auto; }
+  .listElementTitle {
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .listElementCommentPNG {
+    width: 45px;
+    height: 30px;
+    margin: -5px -5px 0 -5px;
+  }
+  .listElementPublication { font-size: 20px; }
   .listElementMedia { flex: 1 auto; }
   .listElement-image-placeHolder {
     display: block;
