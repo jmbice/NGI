@@ -17,7 +17,7 @@ class Root extends React.Component {
       allContent: [],
       videos: [],
       articles: [],
-      filter: 'latest',
+      filter: this.props.filter,
       show: false,
       prevScrollPosition: window.pageYOffset,
       menuVisible: true,
