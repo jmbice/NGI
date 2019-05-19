@@ -1,10 +1,6 @@
 # NGI
 
-This project was originally a coding challenge from IGN, which can be found on <a href="https://github.com/jmbice/IGN-FE">another repo</a>. I added a couple UI features for fun and tried a couple additional Webpack optimizations as well. <br/>
-
-<br/>
-<br/>
-ADDED: <br/>
+This project was originally a coding challenge from IGN, which can be found on <a href="https://github.com/jmbice/IGN-FE">another repo</a>. I added a couple UI features for fun and tried a couple additional Webpack optimizations as well: <br/> <br/>
 • Loading spinner, scroll up menu (mobile), better custom breakpoint sizes with design centered on mobile <br/>
 • Code splitting<br/>
 • Tree shaking<br/>
@@ -12,7 +8,7 @@ ADDED: <br/>
 • Heroku deployment<br/>
 <br/>
 <br/>
-To run locally,
+To run locally, <br/>
   • Download and run NPM install<br/>
   • npm start (start server)<br/>
   • npm run dev (start compiling in developer mode)<br/>
