@@ -1,3 +1,8 @@
-# Front End Project
+This project was originally a coding challenge from IGN, which can be found on another <a href="https://github.com/jmbice/IGN-FE">repo</a>. I added a couple UI features to the orginal for fun, and I tried a couple Webpack optimizations as well:
 
-This repository began as a bare clone of a front-end project I worked on for a coding challenge. The original is saved in its final form for posterity's sake. This repo has been altered into something new.
+ADDED:
+• Loading spinner, scroll up menu (mobile), better custom breakpoint sizes with design centered on mobile 
+• Code splitting
+• Tree shaking
+• React Router implementation for better UX in browser and to allow for URL based web crawling
+• Heroku deployment
