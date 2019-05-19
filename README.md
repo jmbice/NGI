@@ -1,11 +1,11 @@
 # NGI
 
-This project was originally a coding challenge from IGN, which can be found on <a href="https://github.com/jmbice/IGN-FE">another repo</a>. I added a couple UI features for fun and tried a couple additional Webpack optimizations as well: <br/> <br/>
-• Loading spinner, scroll up menu (mobile), better custom breakpoint sizes with design centered on mobile <br/>
-• Code splitting<br/>
-• Tree shaking<br/>
-• React Router implementation for better UX in browser and to allow for URL based web crawling<br/>
-• Heroku deployment<br/>
+This project was originally a coding challenge from IGN, which can be found on <a href="https://github.com/jmbice/IGN-FE">another repo</a>. I added a couple UI features for fun and tried a couple additional Webpack optimizations as well: <br/> 
+&nbsp;&nbsp;  • Loading spinner, scroll up menu (mobile), better custom breakpoint sizes with design centered on mobile <br/>
+&nbsp;&nbsp;  • Code splitting<br/>
+&nbsp;&nbsp;  • Tree shaking<br/>
+&nbsp;&nbsp;  • React Router implementation for better UX in browser and to allow for URL based web crawling<br/>
+&nbsp;&nbsp;  • Heroku deployment<br/>
 <br/>
 <br/>
 To run locally, <br/>
