@@ -8,9 +8,6 @@ const port = process.env.PORT || 3000;
 const redirect = process.env.PORT ? 'http://jordanbice-news.herokuapp.com/' : 'http://localhost:3000';
 const app = express();
 
-// paths, parseJSON = true, pars URL encoded = true, allow x-origin requests
-//app.use(express.static(path.join(__dirname, '../public/dist/')));
-
 app.use('/', expressStaticGzip(path.join(__dirname, '../public'), {
   enableBrotli: true,
   orderPreference: ['br', 'gz'],
@@ -23,8 +20,6 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
-
-
 
 app.get('/content/:count', (req, res) => {
   // gets content based on count (count min = 1, max = 20)
