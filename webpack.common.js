@@ -3,11 +3,12 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './client/app.jsx'
+    app: './client/app.jsx',
+    throttle: './modularize/throttle.js'
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'public/dist'),
+    path: path.resolve(__dirname, 'public/dist')
   },
   resolve: {
     extensions: ['.js', '.jsx'],
