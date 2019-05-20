@@ -3,4 +3,4 @@ node_modules/
 npm-debug.log
 package-lock.json
 public/dist/bundle.js
-public/dist/app.bundle.js
+public/dist/
