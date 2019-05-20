@@ -1,8 +1,8 @@
 import React from 'react';
 import Menu from './Menu';
-import ContentLoaded from './ContentLoaded';
 import PlaceHolderContent from './PlaceHolderContent';
 import throttle from '../../modularize/throttle'; // import throttle/debounce from lodash
+import ContentLoaded from './ContentLoaded';
 
 class Root extends React.Component {
   constructor(props) {
@@ -10,9 +10,10 @@ class Root extends React.Component {
     this.changeFilter = this.changeFilter.bind(this);
     this.fadeAnimation = this.fadeAnimation.bind(this);
     this.getLatest = this.getLatest.bind(this);
-    this.throttleGetLatest = throttle(this.throttleGetLatest.bind(this), 120000);
     this.getEarlierContent = this.getEarlierContent.bind(this);
     this.handleMenuScroll = this.handleMenuScroll.bind(this);
+    this.throttleGetLatest = throttle(this.throttleGetLatest.bind(this), 120000);
+
     this.state = {
       allContent: [],
       videos: [],
@@ -22,13 +23,13 @@ class Root extends React.Component {
       prevScrollPosition: window.pageYOffset,
       menuVisible: true,
       screenWidth: 0,
-      showPlaceHolderData: false,
+      showPlaceHolderData: true,
       showLoadingAnimation: false,
     };
   }
 
   componentDidMount() {
-    this.throttleGetLatest();
+    this.getLatest();
     window.addEventListener('scroll', this.handleMenuScroll);
     this.setState({ screenWidth: screen.width });
   }
@@ -40,6 +41,7 @@ class Root extends React.Component {
   getLatest() {
     const { allContent, videos, articles } = this.state;
     const count = 20; // number of articles to load, API limits 1-20
+
     fetch(`/content/${count}`)
       .then(res => res.json())
       .then((d) => {
@@ -64,7 +66,7 @@ class Root extends React.Component {
           videos: [...newVideos, ...videos],
           articles: [...newArticles, ...articles],
           allContent: [...newAllContent, ...allContent],
-          showPlaceHolderData: true,
+          showPlaceHolderData: false,
         }, () => {
           this.fadeAnimation();
           this.getComments(ids);
@@ -199,7 +201,8 @@ class Root extends React.Component {
           </div>
           <div className="body-content">
             {showPlaceHolderData
-              ? (
+              ? <PlaceHolderContent />
+              : (
                 <ContentLoaded
                   content={content}
                   show={show}
@@ -207,9 +210,7 @@ class Root extends React.Component {
                   showLoadingAnimation={showLoadingAnimation}
                   getEarlierContent={this.getEarlierContent}
                 />
-              )
-              : <PlaceHolderContent />
-           }
+              )}
           </div>
         </div>
       </div>
