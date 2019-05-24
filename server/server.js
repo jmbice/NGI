@@ -11,9 +11,9 @@ const app = express();
 app.use('/', expressStaticGzip(path.join(__dirname, '../public'), {
   enableBrotli: true,
   orderPreference: ['br', 'gz'],
-  setHeaders: (res, path) => {
-    res.setHeader('Cache-Control', 'public, max-age=31536000');
-  },
+  // setHeaders: (res, path) => {
+  //   res.setHeader('Cache-Control', 'public, max-age=31536000');
+  // },
 }));
 
 app.use(express.json());
