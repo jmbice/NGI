@@ -53,11 +53,15 @@ const ContentListElement = (props) => {
     return news.thumbnails[sizeId].url;
   };
 
+  const externalLink = `https://www.ign.com/${news.contentType}s/${news.metadata.publishDate.split('T')[0].split('-').join('/')}/${news.metadata.slug}`;
+
   return (
     <div className="listElementWrapper">
       <div className="listElementMedia">
         <div className="newsImage">
-          <img src={loadBestImage()} alt={news.contentType} />
+          <a href={externalLink} target="_blank" rel="noopener noreferrer">
+            <img src={loadBestImage()} alt={news.contentType} />
+          </a>
         </div>
         {news.contentType === 'video'
           ? <PlayPng time={convertDurationToTime(news.metadata.duration)} />
@@ -72,7 +76,9 @@ const ContentListElement = (props) => {
           {news.commentsCount === 0 ? null : news.commentsCount}
         </div>
         <div className="listElementTitle">
-          {news.metadata.title ? news.metadata.title : news.metadata.headline}
+          <a href={externalLink} target="_blank" rel="noopener noreferrer">
+            {news.metadata.title ? news.metadata.title : news.metadata.headline}
+          </a>
         </div>
       </div>
     </div>
