@@ -29,7 +29,7 @@ class Root extends React.Component {
   }
 
   componentDidMount() {
-    this.getLatest();
+    this.getLatest(true);
     window.addEventListener('scroll', this.handleMenuScroll);
     this.setState({ screenWidth: screen.width });
   }
@@ -38,7 +38,7 @@ class Root extends React.Component {
     window.removeEventListener('scroll', this.handleMenuScroll);
   }
 
-  getLatest() {
+  getLatest(restart) {
     const { allContent, videos, articles } = this.state;
     const count = 20; // number of articles to load, API limits 1-20
 
@@ -61,7 +61,7 @@ class Root extends React.Component {
         }
 
         if (ids.length === 0) { return; }
-
+        console.log(newArticles[0]);
         this.setState({
           videos: [...newVideos, ...videos],
           articles: [...newArticles, ...articles],
@@ -71,6 +71,10 @@ class Root extends React.Component {
           this.fadeAnimation();
           this.getComments(ids);
         });
+      })
+      .catch((err) => {
+        console.log(`Error found: ${err}`);
+        if (restart) { this.getLatest(); }
       });
   }
 
