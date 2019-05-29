@@ -58,7 +58,6 @@ class Root extends React.Component {
             newAllContent.push(d.data[j]);
             ids.push(d.data[j].contentId);
           }
-          console.log(d.data[j].contentType);
         }
 
         if (ids.length === 0) { return; }
