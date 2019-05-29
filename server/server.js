@@ -3,7 +3,6 @@ const path = require('path');
 const request = require('request');
 const expressStaticGzip = require('express-static-gzip');
 
-
 const port = process.env.PORT || 3000;
 const redirect = process.env.PORT ? 'http://jordanbice-news.herokuapp.com/' : 'http://localhost:3000';
 const app = express();
