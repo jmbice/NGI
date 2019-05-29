@@ -29,7 +29,7 @@ class Root extends React.Component {
   }
 
   componentDidMount() {
-    this.getLatest(true);
+    this.getLatest();
     window.addEventListener('scroll', this.handleMenuScroll);
     this.setState({ screenWidth: screen.width });
   }
@@ -38,7 +38,7 @@ class Root extends React.Component {
     window.removeEventListener('scroll', this.handleMenuScroll);
   }
 
-  getLatest(restart) {
+  getLatest() {
     const { allContent, videos, articles } = this.state;
     const count = 20; // number of articles to load, API limits 1-20
 
@@ -58,10 +58,10 @@ class Root extends React.Component {
             newAllContent.push(d.data[j]);
             ids.push(d.data[j].contentId);
           }
+          console.log(d.data[j].contentType);
         }
 
         if (ids.length === 0) { return; }
-        console.log(newArticles[0]);
         this.setState({
           videos: [...newVideos, ...videos],
           articles: [...newArticles, ...articles],
@@ -74,7 +74,6 @@ class Root extends React.Component {
       })
       .catch((err) => {
         console.log(`Error found: ${err}`);
-        if (restart) { this.getLatest(); }
       });
   }
 
